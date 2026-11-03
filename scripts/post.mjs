@@ -34,7 +34,8 @@ const { posts, hashtagsBase = [] } = JSON.parse(await readFile(join(ROOT, "posts
 function today() {
   if (dayArg) return dayArg;
   const start = process.env.SOCIAL_START_DATE;
-  if (!start) throw new Error("Set SOCIAL_START_DATE (YYYY-MM-DD) or pass --day N");
+  if (!start) notSetUp("SOCIAL_START_DATE variable is not set");
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(start)) throw new Error(`SOCIAL_START_DATE must look like 2026-11-06, got "${start}"`);
   const diff = Math.floor((Date.now() - Date.parse(`${start}T00:00:00Z`)) / 86_400_000);
   return diff + 1;
 }
@@ -65,6 +66,8 @@ if (DRY) {
   process.exit(0);
 }
 
+const missing = ["META_PAGE_TOKEN", "FB_PAGE_ID", "IG_USER_ID"].filter((n) => !process.env[n]);
+if (missing.length) notSetUp(`missing secret(s): ${missing.join(", ")}`);
 const TOKEN = need("META_PAGE_TOKEN"), PAGE = need("FB_PAGE_ID"), IG = need("IG_USER_ID");
 await checkMedia();
 const failures = [];
@@ -76,6 +79,12 @@ if (failures.length) {
 }
 
 // ───────────────────────────────────────────── helpers
+
+/** Before SETUP.md is finished the daily run skips with a warning instead of failing (and emailing) every day. */
+function notSetUp(why) {
+  console.log(`::warning::Not set up yet (${why}). Nothing posted. See SETUP.md, steps 3–4.`);
+  process.exit(0);
+}
 
 function need(name) {
   const v = process.env[name];
