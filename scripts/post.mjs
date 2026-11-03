@@ -10,24 +10,28 @@
  * Environment (GitHub → Settings → Secrets and variables → Actions):
  *   META_PAGE_TOKEN    secret   long-lived Page access token (see SETUP.md)
  *   FB_PAGE_ID         secret   numeric Facebook Page id
- *   IG_USER_ID         secret   numeric Instagram business account id
+ *   IG_USER_ID         secret   numeric Instagram professional (Creator or Business) account id
  *   SOCIAL_START_DATE  variable YYYY-MM-DD that is day 1 (UTC)
  *   SOCIAL_PLATFORMS   variable optional, "ig,fb" (default), "ig" or "fb"
+ *   SOCIAL_REELS_AUTO  variable optional, where reels are auto-posted: "fb" (default), "ig,fb" or "none".
+ *                      Instagram's API can't add sounds from its music library, so by default Instagram
+ *                      reels are scheduled by hand in the app with a sound (REELS.md lists them).
  *
  * Images and reels must already be live on GitHub Pages (media/ pushed to main, Pages enabled).
  */
 import { readFile } from "node:fs/promises";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
+import { captionsFor, dayFor, mediaFor } from "./captions.mjs";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
-const SITE = (process.env.SITE_URL || "https://endureqr.com").replace(/\/$/, ""); // caption links
-const MEDIA = (process.env.MEDIA_BASE || "https://cmsdev55.github.io/endureqr-social/media").replace(/\/$/, "");
 const GRAPH = `https://graph.facebook.com/${process.env.GRAPH_VERSION || "v23.0"}`;
 const argv = process.argv.slice(2);
 const DRY = argv.includes("--dry-run");
 const dayArg = argv.includes("--day") ? Number(argv[argv.indexOf("--day") + 1]) : null;
-const platforms = (process.env.SOCIAL_PLATFORMS || "ig,fb").split(",").map((s) => s.trim());
+const list = (v) => v.split(",").map((s) => s.trim()).filter((s) => s && s !== "none");
+const platforms = list(process.env.SOCIAL_PLATFORMS || "ig,fb");
+const reelsAuto = list(process.env.SOCIAL_REELS_AUTO || "fb");
 
 const { posts, hashtagsBase = [] } = JSON.parse(await readFile(join(ROOT, "posts.json"), "utf8"));
 
@@ -35,9 +39,7 @@ function today() {
   if (dayArg) return dayArg;
   const start = process.env.SOCIAL_START_DATE;
   if (!start) notSetUp("SOCIAL_START_DATE variable is not set");
-  if (!/^\d{4}-\d{2}-\d{2}$/.test(start)) throw new Error(`SOCIAL_START_DATE must look like 2026-11-06, got "${start}"`);
-  const diff = Math.floor((Date.now() - Date.parse(`${start}T00:00:00Z`)) / 86_400_000);
-  return diff + 1;
+  return dayFor(start);
 }
 
 const day = today();
@@ -47,19 +49,16 @@ if (!post) {
   process.exit(0);
 }
 
-const id = `d${String(day).padStart(2, "0")}`;
-const media =
-  post.format === "reel"
-    ? { video: `${MEDIA}/${id}.mp4`, cover: `${MEDIA}/${id}-cover.jpg` }
-    : { images: post.slides.map((_, i) => `${MEDIA}/${id}-${i + 1}.jpg`) };
-const tags = [...new Set([...(post.hashtags || []), ...hashtagsBase])].slice(0, 5).join(" "); // Instagram allows 5
-const link = `${SITE}${post.link === "/" ? "" : post.link}`;
-const captionIG = `${post.caption}\n\n🔗 Free guide: link in bio (${link.replace(/^https:\/\//, "")})\n\n${tags}`;
-const captionFB = `${post.caption}\n\n🔗 ${link}\n\n${tags}`;
-const marker = post.caption.split("\n")[0].slice(0, 40);
+const media = mediaFor(post);
+const { ig: captionIG, fb: captionFB, marker } = captionsFor(post, hashtagsBase);
+/** Reels go only where SOCIAL_REELS_AUTO allows; the rest are posted by hand with a sound. */
+const targets = post.format === "reel" ? platforms.filter((p) => reelsAuto.includes(p)) : platforms;
+const manual = platforms.filter((p) => !targets.includes(p));
 
 console.log(`Day ${day} · ${post.format} · ${post.link}`);
 console.log(JSON.stringify(media, null, 2));
+if (manual.length) console.log(`Reel: not auto-posted to ${manual.map((p) => (p === "ig" ? "Instagram" : "Facebook")).join(" + ")} (schedule it by hand with a sound, see REELS.md)`);
+if (!targets.length) process.exit(0);
 if (DRY) {
   console.log(`\n--- Instagram caption ---\n${captionIG}\n\n--- Facebook caption ---\n${captionFB}`);
   await checkMedia().catch((e) => console.log(`\n(media check: ${e.message})`));
@@ -71,8 +70,8 @@ if (missing.length) notSetUp(`missing secret(s): ${missing.join(", ")}`);
 const TOKEN = need("META_PAGE_TOKEN"), PAGE = need("FB_PAGE_ID"), IG = need("IG_USER_ID");
 await checkMedia();
 const failures = [];
-if (platforms.includes("ig")) await instagram().catch((e) => failures.push(`Instagram: ${e.message}`));
-if (platforms.includes("fb")) await facebook().catch((e) => failures.push(`Facebook: ${e.message}`));
+if (targets.includes("ig")) await instagram().catch((e) => failures.push(`Instagram: ${e.message}`));
+if (targets.includes("fb")) await facebook().catch((e) => failures.push(`Facebook: ${e.message}`));
 if (failures.length) {
   console.error(failures.join("\n"));
   process.exit(1);

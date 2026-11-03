@@ -41,6 +41,7 @@ jobs:
           IG_USER_ID: ${{ secrets.IG_USER_ID }}
           SOCIAL_START_DATE: ${{ vars.SOCIAL_START_DATE }}
           SOCIAL_PLATFORMS: ${{ vars.SOCIAL_PLATFORMS }}
+          SOCIAL_REELS_AUTO: ${{ vars.SOCIAL_REELS_AUTO }}
           DAY: ${{ inputs.day }}
           DRY_RUN: ${{ inputs.dry_run }}
         run: |

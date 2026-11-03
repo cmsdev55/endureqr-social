@@ -91,7 +91,8 @@
         "#printdesign",
         "#graphicdesign",
         "#marketingtips"
-      ]
+      ],
+      "sound": "Upbeat, positive (tip)"
     },
     {
       "day": 3,
@@ -222,7 +223,8 @@
         "#wifi",
         "#cafe",
         "#airbnbhost"
-      ]
+      ],
+      "sound": "Upbeat, light (how-to)"
     },
     {
       "day": 6,
@@ -337,7 +339,8 @@
         "#technology",
         "#howitworks",
         "#techexplained"
-      ]
+      ],
+      "sound": "Calm, curious (explainer)"
     },
     {
       "day": 9,
@@ -464,7 +467,8 @@
         "#branding",
         "#logodesign",
         "#graphicdesign"
-      ]
+      ],
+      "sound": "Upbeat, creative (design)"
     },
     {
       "day": 12,
@@ -589,7 +593,8 @@
         "#iphonetips",
         "#androidtips",
         "#techtips"
-      ]
+      ],
+      "sound": "Calm, friendly (how-to)"
     },
     {
       "day": 15,
@@ -714,7 +719,8 @@
         "#marketinganalytics",
         "#digitalmarketing",
         "#marketingtips"
-      ]
+      ],
+      "sound": "Upbeat, business (marketing)"
     },
     {
       "day": 18,
@@ -824,7 +830,8 @@
         "#howto",
         "#freetools",
         "#qrcodes"
-      ]
+      ],
+      "sound": "Upbeat, energetic (step by step)"
     },
     {
       "day": 21,
@@ -936,7 +943,8 @@
         "#scamalert",
         "#cybersecurity",
         "#onlinesafety"
-      ]
+      ],
+      "sound": "Suspense, tense (scam alert)"
     },
     {
       "day": 24,
@@ -1040,7 +1048,8 @@
         "#freetools",
         "#smallbusinesstips",
         "#qrcodes"
-      ]
+      ],
+      "sound": "Calm, positive (did you know)"
     },
     {
       "day": 27,
@@ -1156,7 +1165,8 @@
         "#retail",
         "#shopowner",
         "#smallbusiness"
-      ]
+      ],
+      "sound": "Upbeat, cheerful (shop ideas)"
     },
     {
       "day": 30,
