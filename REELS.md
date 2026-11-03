@@ -4,26 +4,26 @@ Instagram's API can't add a sound from the app's music library, so these 10 reel
 (steps in [SETUP.md](SETUP.md#reels-instagram-pe-haath-se-sound-ke-saath-mahine-mein-ek-dafa-2030-minute)).
 Everything else is posted automatically.
 
-Dates appear once `SOCIAL_START_DATE` is set: `SOCIAL_START_DATE=2026-11-06 npm run reels`.
+Day 1 = 2026-11-04.
 
 | Day | Date | Sound mood | Video |
 |---|---|---|---|
-| 2 | - | Upbeat, positive (tip) | [d02.mp4](https://cmsdev55.github.io/endureqr-social/media/d02.mp4) |
-| 5 | - | Upbeat, light (how-to) | [d05.mp4](https://cmsdev55.github.io/endureqr-social/media/d05.mp4) |
-| 8 | - | Calm, curious (explainer) | [d08.mp4](https://cmsdev55.github.io/endureqr-social/media/d08.mp4) |
-| 11 | - | Upbeat, creative (design) | [d11.mp4](https://cmsdev55.github.io/endureqr-social/media/d11.mp4) |
-| 14 | - | Calm, friendly (how-to) | [d14.mp4](https://cmsdev55.github.io/endureqr-social/media/d14.mp4) |
-| 17 | - | Upbeat, business (marketing) | [d17.mp4](https://cmsdev55.github.io/endureqr-social/media/d17.mp4) |
-| 20 | - | Upbeat, energetic (step by step) | [d20.mp4](https://cmsdev55.github.io/endureqr-social/media/d20.mp4) |
-| 23 | - | Suspense, tense (scam alert) | [d23.mp4](https://cmsdev55.github.io/endureqr-social/media/d23.mp4) |
-| 26 | - | Calm, positive (did you know) | [d26.mp4](https://cmsdev55.github.io/endureqr-social/media/d26.mp4) |
-| 29 | - | Upbeat, cheerful (shop ideas) | [d29.mp4](https://cmsdev55.github.io/endureqr-social/media/d29.mp4) |
+| 2 | 2026-11-05 | Upbeat, positive (tip) | [d02.mp4](https://cmsdev55.github.io/endureqr-social/media/d02.mp4) |
+| 5 | 2026-11-08 | Upbeat, light (how-to) | [d05.mp4](https://cmsdev55.github.io/endureqr-social/media/d05.mp4) |
+| 8 | 2026-11-11 | Calm, curious (explainer) | [d08.mp4](https://cmsdev55.github.io/endureqr-social/media/d08.mp4) |
+| 11 | 2026-11-14 | Upbeat, creative (design) | [d11.mp4](https://cmsdev55.github.io/endureqr-social/media/d11.mp4) |
+| 14 | 2026-11-17 | Calm, friendly (how-to) | [d14.mp4](https://cmsdev55.github.io/endureqr-social/media/d14.mp4) |
+| 17 | 2026-11-20 | Upbeat, business (marketing) | [d17.mp4](https://cmsdev55.github.io/endureqr-social/media/d17.mp4) |
+| 20 | 2026-11-23 | Upbeat, energetic (step by step) | [d20.mp4](https://cmsdev55.github.io/endureqr-social/media/d20.mp4) |
+| 23 | 2026-11-26 | Suspense, tense (scam alert) | [d23.mp4](https://cmsdev55.github.io/endureqr-social/media/d23.mp4) |
+| 26 | 2026-11-29 | Calm, positive (did you know) | [d26.mp4](https://cmsdev55.github.io/endureqr-social/media/d26.mp4) |
+| 29 | 2026-12-02 | Upbeat, cheerful (shop ideas) | [d29.mp4](https://cmsdev55.github.io/endureqr-social/media/d29.mp4) |
 
 ---
 
 ## Day 2: How big should a QR code be?
 
-- **When:** Day 2
+- **When:** 2026-11-05, 7:00 pm (Pakistan)
 - **Video:** https://cmsdev55.github.io/endureqr-social/media/d02.mp4
 - **Sound:** Upbeat, positive (tip). Search the mood in the Audio tab, or pick a trending one (↗ arrow) that fits.
 
@@ -51,7 +51,7 @@ Treat these as minimums. Go bigger in bad light or if people scan at an angle.
 
 ## Day 5: Share WiFi without the password
 
-- **When:** Day 5
+- **When:** 2026-11-08, 7:00 pm (Pakistan)
 - **Video:** https://cmsdev55.github.io/endureqr-social/media/d05.mp4
 - **Sound:** Upbeat, light (how-to). Search the mood in the Audio tab, or pick a trending one (↗ arrow) that fits.
 
@@ -74,7 +74,7 @@ A WiFi QR code lets guests join your network with one scan. Works on iPhone and 
 
 ## Day 8: What's inside a QR code?
 
-- **When:** Day 8
+- **When:** 2026-11-11, 7:00 pm (Pakistan)
 - **Video:** https://cmsdev55.github.io/endureqr-social/media/d08.mp4
 - **Sound:** Calm, curious (explainer). Search the mood in the Audio tab, or pick a trending one (↗ arrow) that fits.
 
@@ -98,7 +98,7 @@ Follow for one QR tip a day 🚀
 
 ## Day 11: How big can your logo be?
 
-- **When:** Day 11
+- **When:** 2026-11-14, 7:00 pm (Pakistan)
 - **Video:** https://cmsdev55.github.io/endureqr-social/media/d11.mp4
 - **Sound:** Upbeat, creative (design). Search the mood in the Audio tab, or pick a trending one (↗ arrow) that fits.
 
@@ -121,7 +121,7 @@ Want your logo in the middle of your QR code? Do it the safe way 👇
 
 ## Day 14: Scan a QR code in 2 seconds
 
-- **When:** Day 14
+- **When:** 2026-11-17, 7:00 pm (Pakistan)
 - **Video:** https://cmsdev55.github.io/endureqr-social/media/d14.mp4
 - **Sound:** Calm, friendly (how-to). Search the mood in the Audio tab, or pick a trending one (↗ arrow) that fits.
 
@@ -145,7 +145,7 @@ Share this with someone who always asks you 😄
 
 ## Day 17: Is anyone scanning your QR code?
 
-- **When:** Day 17
+- **When:** 2026-11-20, 7:00 pm (Pakistan)
 - **Video:** https://cmsdev55.github.io/endureqr-social/media/d17.mp4
 - **Sound:** Upbeat, business (marketing). Search the mood in the Audio tab, or pick a trending one (↗ arrow) that fits.
 
@@ -168,7 +168,7 @@ Which one are you using? 👇
 
 ## Day 20: Make a QR code in 4 steps
 
-- **When:** Day 20
+- **When:** 2026-11-23, 7:00 pm (Pakistan)
 - **Video:** https://cmsdev55.github.io/endureqr-social/media/d20.mp4
 - **Sound:** Upbeat, energetic (step by step). Search the mood in the Audio tab, or pick a trending one (↗ arrow) that fits.
 
@@ -193,7 +193,7 @@ Then print ONE copy and test it on a few phones before the big print run.
 
 ## Day 23: The fake parking meter QR
 
-- **When:** Day 23
+- **When:** 2026-11-26, 7:00 pm (Pakistan)
 - **Video:** https://cmsdev55.github.io/endureqr-social/media/d23.mp4
 - **Sound:** Suspense, tense (scam alert). Search the mood in the Audio tab, or pick a trending one (↗ arrow) that fits.
 
@@ -219,7 +219,7 @@ Share this to warn someone 🙏
 
 ## Day 26: A static QR code is free forever
 
-- **When:** Day 26
+- **When:** 2026-11-29, 7:00 pm (Pakistan)
 - **Video:** https://cmsdev55.github.io/endureqr-social/media/d26.mp4
 - **Sound:** Calm, positive (did you know). Search the mood in the Audio tab, or pick a trending one (↗ arrow) that fits.
 
@@ -242,7 +242,7 @@ Use dynamic when: you want to change the link later or count scans.
 
 ## Day 29: QR ideas for your shop
 
-- **When:** Day 29
+- **When:** 2026-12-02, 7:00 pm (Pakistan)
 - **Video:** https://cmsdev55.github.io/endureqr-social/media/d29.mp4
 - **Sound:** Upbeat, cheerful (shop ideas). Search the mood in the Audio tab, or pick a trending one (↗ arrow) that fits.
 
