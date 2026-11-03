@@ -1,0 +1,50 @@
+name: Daily social post
+
+# Posts one day of posts.json to Instagram + Facebook, every day at 14:00 UTC
+# (7 pm Pakistan, 9 am New York). Free: uses about 1 minute of GitHub Actions a day.
+# Setup: SETUP.md
+on:
+  schedule:
+    - cron: "0 14 * * *"
+  workflow_dispatch:
+    inputs:
+      day:
+        description: "Post a specific day (1–30). Leave empty for today's."
+        required: false
+      dry_run:
+        description: "Dry run (show the post, send nothing)"
+        type: boolean
+        default: false
+
+concurrency:
+  group: social-post
+  cancel-in-progress: false
+
+jobs:
+  post:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            posts.json
+            scripts/post.mjs
+          sparse-checkout-cone-mode: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Post
+        env:
+          META_PAGE_TOKEN: ${{ secrets.META_PAGE_TOKEN }}
+          FB_PAGE_ID: ${{ secrets.FB_PAGE_ID }}
+          IG_USER_ID: ${{ secrets.IG_USER_ID }}
+          SOCIAL_START_DATE: ${{ vars.SOCIAL_START_DATE }}
+          SOCIAL_PLATFORMS: ${{ vars.SOCIAL_PLATFORMS }}
+          DAY: ${{ inputs.day }}
+          DRY_RUN: ${{ inputs.dry_run }}
+        run: |
+          ARGS=()
+          if [[ "$DAY" =~ ^[0-9]+$ ]]; then ARGS+=(--day "$DAY"); fi
+          if [ "$DRY_RUN" = "true" ]; then ARGS+=(--dry-run); fi
+          node scripts/post.mjs "${ARGS[@]}"

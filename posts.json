@@ -1,0 +1,1217 @@
+{
+  "note": "30 days of Instagram + Facebook posts for EndureQR. Facts come from the guides in src/content. Render with `node scripts/social-render.mjs`, post with `node scripts/social-post.mjs`. In titles, **word** is drawn in lime.",
+  "hashtagsBase": [
+    "#qrcode",
+    "#smallbusiness"
+  ],
+  "posts": [
+    {
+      "day": 1,
+      "format": "carousel",
+      "link": "/guides/do-qr-codes-expire",
+      "slides": [
+        {
+          "kind": "cover",
+          "eyebrow": "Myth vs fact",
+          "title": "Do QR codes **expire?**",
+          "sub": "Short answer: the code doesn't. The service behind it might."
+        },
+        {
+          "kind": "point",
+          "num": "01",
+          "title": "A static code never expires",
+          "body": "It stores your link or text directly in the pattern. It scans for as long as the print survives."
+        },
+        {
+          "kind": "point",
+          "num": "02",
+          "title": "So why do codes stop working?",
+          "body": "Almost always it's the service behind a dynamic code: a free trial runs out, a plan is cancelled or a domain lapses."
+        },
+        {
+          "kind": "list",
+          "title": "Before you print, check:",
+          "items": [
+            "What happens if I stop paying?",
+            "Is the short link on a domain they own?",
+            "Can I export my codes and scans?"
+          ]
+        },
+        {
+          "kind": "cta",
+          "title": "Codes that keep **working**",
+          "body": "On EndureQR, dynamic codes keep redirecting to the last link you set, even if you cancel.",
+          "url": "https://endureqr.com/guides/do-qr-codes-expire"
+        }
+      ],
+      "caption": "Printed 500 flyers and the QR code stopped working a month later? 😬\n\nQR codes themselves don't expire. A static code stores your link right in the pattern, so it works as long as the print does.\n\nWhen a code \"dies\", it's usually the service behind a dynamic code: a free trial ended, a plan was cancelled or a domain lapsed.\n\nSave this before your next print run 📌",
+      "hashtags": [
+        "#qrcodes",
+        "#printing",
+        "#marketingtips"
+      ]
+    },
+    {
+      "day": 2,
+      "format": "reel",
+      "link": "/guides/qr-code-size-for-printing",
+      "slides": [
+        {
+          "kind": "cover",
+          "eyebrow": "Print tip",
+          "title": "How big should a QR code **be?**",
+          "sub": "Use the 10:1 rule."
+        },
+        {
+          "kind": "stat",
+          "big": "10 : 1",
+          "label": "Scan distance : code width",
+          "body": "Scanned from 2 m away? Make the code at least 20 cm wide."
+        },
+        {
+          "kind": "list",
+          "title": "Quick sizes",
+          "items": [
+            "Business card: 2 cm",
+            "Flyer: 3 cm",
+            "Table tent: 5 cm",
+            "Poster at 1 m: 10 cm",
+            "Banner at 5 m: 50 cm"
+          ]
+        },
+        {
+          "kind": "cta",
+          "title": "Save this for your **next print**",
+          "body": "Full table and DPI settings in the free guide.",
+          "url": "https://endureqr.com/guides/qr-code-size-for-printing"
+        }
+      ],
+      "caption": "The 10:1 rule for QR codes 📏\n\nYour code should be at least 1/10 as wide as the distance people scan it from.\n\n📇 Business card → 2 cm\n📄 Flyer → 3 cm\n🍽️ Table tent → 5 cm\n🪧 Poster at 1 m → 10 cm\n🎪 Banner at 5 m → 50 cm\n\nTreat these as minimums. Go bigger in bad light or if people scan at an angle.",
+      "hashtags": [
+        "#printdesign",
+        "#graphicdesign",
+        "#marketingtips"
+      ]
+    },
+    {
+      "day": 3,
+      "format": "single",
+      "link": "/guides/static-vs-dynamic-qr-codes",
+      "slides": [
+        {
+          "kind": "compare",
+          "title": "Static vs **dynamic**",
+          "left": {
+            "label": "Static",
+            "items": [
+              "Link stored in the code",
+              "Can't be changed after printing",
+              "No scan counts",
+              "Free forever"
+            ]
+          },
+          "right": {
+            "label": "Dynamic",
+            "items": [
+              "Points to a short link",
+              "Change the destination anytime",
+              "Scan analytics",
+              "Needs a service behind it"
+            ]
+          }
+        }
+      ],
+      "caption": "Static or dynamic QR code? Here's the whole difference in one picture 👆\n\n✅ Static: free, fixed, works forever. Great for WiFi, contact cards and links that won't change.\n✅ Dynamic: you can change where it points after printing and see how many people scan it. Great for menus, posters and campaigns.\n\nWhich one do you use most? Tell us below 👇",
+      "hashtags": [
+        "#digitalmarketing",
+        "#qrcodes",
+        "#businesstips"
+      ]
+    },
+    {
+      "day": 4,
+      "format": "carousel",
+      "link": "/guides/qr-code-not-scanning",
+      "slides": [
+        {
+          "kind": "cover",
+          "eyebrow": "Troubleshooting",
+          "title": "QR code not **scanning?**",
+          "sub": "5 causes behind most failures, and the fix for each."
+        },
+        {
+          "kind": "point",
+          "num": "01",
+          "title": "Low contrast",
+          "body": "Scanners see brightness, not colour. If the code blends in when you squint, make the modules darker or the background lighter."
+        },
+        {
+          "kind": "point",
+          "num": "02",
+          "title": "Inverted colours",
+          "body": "Light modules on a dark background fail on some phones. Use dark modules on a light background."
+        },
+        {
+          "kind": "point",
+          "num": "03",
+          "title": "No quiet zone",
+          "body": "Keep a plain margin 4 modules wide on every side. Text or borders too close break it."
+        },
+        {
+          "kind": "point",
+          "num": "04",
+          "title": "Logo too big",
+          "body": "Keep a logo to about 20 to 25% of the code's area, away from the 3 corner squares."
+        },
+        {
+          "kind": "point",
+          "num": "05",
+          "title": "Too small",
+          "body": "Use the 10:1 rule: the code should be 1/10 of the scanning distance."
+        },
+        {
+          "kind": "cta",
+          "title": "The full **checklist**",
+          "body": "Phone, print and link problems, in order.",
+          "url": "https://endureqr.com/guides/qr-code-not-scanning"
+        }
+      ],
+      "caption": "Your QR code won't scan? Swipe through these 5 fixes before you reprint anything 👉\n\n1️⃣ Low contrast\n2️⃣ Inverted colours\n3️⃣ Missing quiet zone\n4️⃣ Logo too big\n5️⃣ Code too small\n\nSend this to the person who designs your flyers 😉",
+      "hashtags": [
+        "#graphicdesign",
+        "#printing",
+        "#designtips"
+      ]
+    },
+    {
+      "day": 5,
+      "format": "reel",
+      "link": "/guides/wifi-qr-code",
+      "slides": [
+        {
+          "kind": "cover",
+          "eyebrow": "Free tool",
+          "title": "Share WiFi **without** the password",
+          "sub": "Guests scan, phone connects. No typing."
+        },
+        {
+          "kind": "list",
+          "title": "How to make one",
+          "items": [
+            "Pick the WiFi type",
+            "Type network name + password",
+            "Choose WPA/WPA2",
+            "Download and print"
+          ]
+        },
+        {
+          "kind": "point",
+          "num": "TIP",
+          "title": "Use a guest network",
+          "body": "Never print your main network. Keep the code for your private WiFi off walls and menus."
+        },
+        {
+          "kind": "cta",
+          "title": "Make yours **free**",
+          "body": "No sign-up, no watermark. Made in your browser.",
+          "url": "https://endureqr.com/qr-code-generator/wifi"
+        }
+      ],
+      "caption": "Tired of spelling out your WiFi password? 📶\n\nA WiFi QR code lets guests join your network with one scan. Works on iPhone and Android with the normal camera.\n\n☕ Perfect for cafés, salons, offices and Airbnbs.\n🔒 Tip: put your GUEST network on it, never your main one.",
+      "hashtags": [
+        "#wifi",
+        "#cafe",
+        "#airbnbhost"
+      ]
+    },
+    {
+      "day": 6,
+      "format": "single",
+      "link": "/guides/qr-code-size-for-printing",
+      "slides": [
+        {
+          "kind": "stat",
+          "eyebrow": "The rule designers break",
+          "big": "4",
+          "label": "modules of quiet zone",
+          "body": "Every QR code needs a plain, light margin 4 modules wide on every side. It's how the scanner finds where the code starts."
+        }
+      ],
+      "caption": "The #1 reason a well-sized QR code still fails: someone trimmed the margin ✂️\n\nThe QR standard calls for a \"quiet zone\" 4 modules wide on all sides. No text, lines or images in it.\n\nEasiest fix: put a white box behind the code.\n\nTag a designer who needs this 👇",
+      "hashtags": [
+        "#graphicdesign",
+        "#designtips",
+        "#printdesign"
+      ]
+    },
+    {
+      "day": 7,
+      "format": "carousel",
+      "link": "/guides/are-qr-codes-safe",
+      "slides": [
+        {
+          "kind": "cover",
+          "eyebrow": "Stay safe",
+          "title": "How to spot a **QR scam**",
+          "sub": "The code is harmless. Where it sends you might not be."
+        },
+        {
+          "kind": "list",
+          "title": "Common tricks",
+          "items": [
+            "Fake codes on parking meters",
+            "Stickers over real codes on menus",
+            "Emails about a \"problem\" with your parcel or payment"
+          ]
+        },
+        {
+          "kind": "point",
+          "num": "01",
+          "title": "Read the preview",
+          "body": "iPhone and Android cameras show the address before opening it. Look before you tap."
+        },
+        {
+          "kind": "point",
+          "num": "02",
+          "title": "Check the domain",
+          "body": "The part before the first single slash. Watch for misspellings and extra words."
+        },
+        {
+          "kind": "point",
+          "num": "03",
+          "title": "Look at what it asks for",
+          "body": "A menu shouldn't need your card number. Be careful with pages asking for payment or passwords."
+        },
+        {
+          "kind": "cta",
+          "title": "Share this with **family**",
+          "body": "The full guide, for people and for businesses.",
+          "url": "https://endureqr.com/guides/are-qr-codes-safe"
+        }
+      ],
+      "caption": "QR code scams are on the rise. Here's how to spot one in 5 seconds 🕵️\n\n👀 Read the link preview before you tap\n🔤 Check the domain for misspellings\n💳 Be careful if a page asks for payment or a password\n\nShare this with someone who scans everything 🙏",
+      "hashtags": [
+        "#cybersecurity",
+        "#scamalert",
+        "#onlinesafety"
+      ]
+    },
+    {
+      "day": 8,
+      "format": "reel",
+      "link": "/guides/what-is-a-qr-code",
+      "slides": [
+        {
+          "kind": "cover",
+          "eyebrow": "Explained",
+          "title": "What's **inside** a QR code?",
+          "sub": "Every square has a job."
+        },
+        {
+          "kind": "point",
+          "num": "01",
+          "title": "3 corner squares",
+          "body": "They tell the phone where the code is and which way up it is."
+        },
+        {
+          "kind": "point",
+          "num": "02",
+          "title": "Modules",
+          "body": "The small dark and light squares hold your data."
+        },
+        {
+          "kind": "point",
+          "num": "03",
+          "title": "Error correction",
+          "body": "Extra data lets a scratched or smudged code still scan, up to about 30%."
+        },
+        {
+          "kind": "cta",
+          "title": "Learn it in **5 minutes**",
+          "body": "QR codes explained simply.",
+          "url": "https://endureqr.com/guides/what-is-a-qr-code"
+        }
+      ],
+      "caption": "Ever wondered how a QR code actually works? 🤔\n\n🔲 The 3 big corner squares help your phone find the code and turn it the right way up.\n⬛ The tiny squares (\"modules\") store the data.\n🩹 Error correction lets a damaged code still scan.\n\nFollow for one QR tip a day 🚀",
+      "hashtags": [
+        "#technology",
+        "#howitworks",
+        "#techexplained"
+      ]
+    },
+    {
+      "day": 9,
+      "format": "carousel",
+      "link": "/guides/qr-code-for-restaurant-menu",
+      "slides": [
+        {
+          "kind": "cover",
+          "eyebrow": "For restaurants",
+          "title": "A menu QR guests **actually use**",
+          "sub": "Setting it up takes minutes. Getting it right takes these 5 checks."
+        },
+        {
+          "kind": "point",
+          "num": "01",
+          "title": "Put the menu online",
+          "body": "A fast mobile page beats a heavy PDF. Guests are on phone data."
+        },
+        {
+          "kind": "point",
+          "num": "02",
+          "title": "Add a clear label",
+          "body": "\"Scan for menu\" next to the code. People don't scan what they don't understand."
+        },
+        {
+          "kind": "point",
+          "num": "03",
+          "title": "Keep it wipeable",
+          "body": "Tables get wiped. Laminate or use a stand, with a matte finish to avoid glare."
+        },
+        {
+          "kind": "point",
+          "num": "04",
+          "title": "Add a fallback",
+          "body": "Keep a few printed menus for guests who don't want to scan."
+        },
+        {
+          "kind": "cta",
+          "title": "Change the menu, **not the code**",
+          "body": "A dynamic code lets you swap menus without reprinting.",
+          "url": "https://endureqr.com/guides/qr-code-for-restaurant-menu"
+        }
+      ],
+      "caption": "Restaurant owners: is your menu QR code helping or annoying guests? 🍝\n\n✅ Mobile page, not a giant PDF\n✅ \"Scan for menu\" label\n✅ Wipeable, matte, no glare\n✅ A few paper menus as backup\n\nTag a restaurant owner who needs this 👇",
+      "hashtags": [
+        "#restaurant",
+        "#restaurantmarketing",
+        "#cafeowner"
+      ]
+    },
+    {
+      "day": 10,
+      "format": "single",
+      "link": "/guides/qr-code-error-correction",
+      "slides": [
+        {
+          "kind": "levels",
+          "eyebrow": "Error correction",
+          "title": "How much damage can a QR code **survive?**",
+          "levels": [
+            [
+              "L",
+              "7%"
+            ],
+            [
+              "M",
+              "15%"
+            ],
+            [
+              "Q",
+              "25%"
+            ],
+            [
+              "H",
+              "30%"
+            ]
+          ],
+          "body": "Higher levels are tougher but make the code denser. Adding a logo? Use H."
+        }
+      ],
+      "caption": "A QR code can still scan with part of it missing 🤯\n\nThat's error correction. There are 4 levels:\nL → ~7%\nM → ~15%\nQ → ~25%\nH → ~30%\n\nHigher = tougher, but denser. If you put a logo in the middle, use H (our free generator switches to H automatically when you add a logo).",
+      "hashtags": [
+        "#technology",
+        "#design",
+        "#qrcodes"
+      ]
+    },
+    {
+      "day": 11,
+      "format": "reel",
+      "link": "/guides/qr-code-design-best-practices",
+      "slides": [
+        {
+          "kind": "cover",
+          "eyebrow": "Design tip",
+          "title": "How big can your **logo** be?",
+          "sub": "Bigger logo, more risk."
+        },
+        {
+          "kind": "stat",
+          "big": "20–25%",
+          "label": "of the code's area, at most",
+          "body": "Smaller is safer. A logo covers modules, so part of the data is missing."
+        },
+        {
+          "kind": "list",
+          "title": "Rules for logo codes",
+          "items": [
+            "Centre it",
+            "Keep it off the 3 corner squares",
+            "Use error correction level H",
+            "Test on several phones"
+          ]
+        },
+        {
+          "kind": "cta",
+          "title": "Add your logo **free**",
+          "body": "PNG, SVG and PDF downloads. No watermark.",
+          "url": "https://endureqr.com/qr-code-with-logo"
+        }
+      ],
+      "caption": "Want your logo in the middle of your QR code? Do it the safe way 👇\n\n📐 Keep the logo to about 20–25% of the code's area (smaller is safer)\n🎯 Centre it, away from the corner squares\n🛡️ Use error correction level H\n📱 Test on a few different phones before printing",
+      "hashtags": [
+        "#branding",
+        "#logodesign",
+        "#graphicdesign"
+      ]
+    },
+    {
+      "day": 12,
+      "format": "carousel",
+      "link": "/guides/qr-code-business-card",
+      "slides": [
+        {
+          "kind": "cover",
+          "eyebrow": "Business cards",
+          "title": "Get saved in **one scan**",
+          "sub": "vCard or link? Here's how to choose."
+        },
+        {
+          "kind": "compare",
+          "title": "vCard vs **link**",
+          "left": {
+            "label": "vCard",
+            "items": [
+              "Saves you to contacts",
+              "Works offline",
+              "Fixed once printed"
+            ]
+          },
+          "right": {
+            "label": "Link",
+            "items": [
+              "Opens a page or profile",
+              "Can be updated (dynamic)",
+              "Needs internet"
+            ]
+          }
+        },
+        {
+          "kind": "list",
+          "title": "What to include",
+          "items": [
+            "Name",
+            "Mobile number",
+            "Email address",
+            "Job title and company",
+            "Website"
+          ]
+        },
+        {
+          "kind": "point",
+          "num": "TIP",
+          "title": "Keep it at least 2 cm",
+          "body": "And print your details as text too, for people who'd rather type."
+        },
+        {
+          "kind": "cta",
+          "title": "Make a contact **QR**",
+          "body": "Free vCard QR generator, no sign-up.",
+          "url": "https://endureqr.com/qr-code-generator/vcard"
+        }
+      ],
+      "caption": "Your business card should save you into someone's phone in ONE scan 📇\n\n📲 vCard QR → adds you straight to their contacts\n🔗 Link QR → opens your website or profile\n\nKeep it at least 2 cm wide and print your details as text too.\n\nWhich would you choose? 👇",
+      "hashtags": [
+        "#businesscard",
+        "#networking",
+        "#entrepreneur"
+      ]
+    },
+    {
+      "day": 13,
+      "format": "single",
+      "link": "/guides/qr-code-size-for-printing",
+      "slides": [
+        {
+          "kind": "stat",
+          "eyebrow": "Before you send to print",
+          "big": "300 DPI",
+          "label": "at the final print size",
+          "body": "Or use an SVG or PDF, which stays sharp at any size. Never stretch a small image."
+        }
+      ],
+      "caption": "Blurry QR code on your poster? Here's why 🖨️\n\nA small PNG stretched to poster size goes soft at the edges, and scanners hate that.\n\n✅ Raster (PNG): 300 DPI at the final print size\n✅ Better: SVG or PDF, which stay sharp at any size\n\nOur free generator exports PNG, SVG, JPEG and PDF up to 4096 px.",
+      "hashtags": [
+        "#printing",
+        "#printdesign",
+        "#graphicdesign"
+      ]
+    },
+    {
+      "day": 14,
+      "format": "reel",
+      "link": "/guides/how-to-scan-a-qr-code",
+      "slides": [
+        {
+          "kind": "cover",
+          "eyebrow": "How to",
+          "title": "Scan a QR code in **2 seconds**",
+          "sub": "No app needed."
+        },
+        {
+          "kind": "point",
+          "num": "iPhone",
+          "title": "Open the Camera",
+          "body": "Point at the code and tap the link that appears. Or use Code Scanner in Control Centre."
+        },
+        {
+          "kind": "point",
+          "num": "Android",
+          "title": "Camera or Google Lens",
+          "body": "Most cameras scan directly. If not, try Google Lens or the Quick Settings scanner."
+        },
+        {
+          "kind": "point",
+          "num": "On screen",
+          "title": "Code on your own phone?",
+          "body": "Android: Google Lens or Circle to Search. iPhone: open it in Photos, then press and hold the code."
+        },
+        {
+          "kind": "cta",
+          "title": "Send this to your **parents**",
+          "body": "iPhone, Android and laptop, step by step.",
+          "url": "https://endureqr.com/guides/how-to-scan-a-qr-code"
+        }
+      ],
+      "caption": "Still downloading a QR scanner app? You don't need one 📱\n\n🍎 iPhone: open the Camera and point\n🤖 Android: Camera, Google Lens or the Quick Settings scanner\n🖼️ Code on your own screen? Google Lens / Circle to Search, or on iPhone open it in Photos and press and hold the code\n\nShare this with someone who always asks you 😄",
+      "hashtags": [
+        "#iphonetips",
+        "#androidtips",
+        "#techtips"
+      ]
+    },
+    {
+      "day": 15,
+      "format": "carousel",
+      "link": "/guides/qr-code-for-google-reviews",
+      "slides": [
+        {
+          "kind": "cover",
+          "eyebrow": "Local business",
+          "title": "Get more **Google reviews**",
+          "sub": "One QR code that opens your review form."
+        },
+        {
+          "kind": "list",
+          "title": "Where it works best",
+          "items": [
+            "On the receipt",
+            "At the till",
+            "On a thank-you card",
+            "In the follow-up email"
+          ]
+        },
+        {
+          "kind": "point",
+          "num": "01",
+          "title": "Ask in person",
+          "body": "A short spoken request, pointing at the code, beats a sign on its own."
+        },
+        {
+          "kind": "point",
+          "num": "02",
+          "title": "Ask everyone",
+          "body": "Not only the happy regulars. Google's rules don't allow picking who gets asked."
+        },
+        {
+          "kind": "point",
+          "num": "03",
+          "title": "Never pay for reviews",
+          "body": "No discounts or gifts for reviews, and don't suggest a star rating."
+        },
+        {
+          "kind": "cta",
+          "title": "Make your **review QR**",
+          "body": "How to find your review link, step by step.",
+          "url": "https://endureqr.com/guides/qr-code-for-google-reviews"
+        }
+      ],
+      "caption": "More Google reviews = more customers finding you on Maps ⭐\n\nA review QR code opens your Google review form in one scan. Put it on receipts, at the till or on a thank-you card.\n\n⚠️ Follow the rules: ask every customer, never offer rewards for reviews, and don't suggest a rating.",
+      "hashtags": [
+        "#googlereviews",
+        "#localbusiness",
+        "#customerexperience"
+      ]
+    },
+    {
+      "day": 16,
+      "format": "single",
+      "link": "/guides/qr-code-design-best-practices",
+      "slides": [
+        {
+          "kind": "compare",
+          "title": "Colour that **scans**",
+          "left": {
+            "label": "Risky",
+            "items": [
+              "Light code on dark background",
+              "Pale modules",
+              "Gradients that fade out",
+              "Printed over a photo"
+            ]
+          },
+          "right": {
+            "label": "Safe",
+            "items": [
+              "Dark code on light background",
+              "Strong contrast",
+              "Plain white box behind it",
+              "Rounded squares"
+            ]
+          }
+        }
+      ],
+      "caption": "You CAN make a QR code match your brand colours. Just follow one rule 🎨\n\nDark modules on a light background, with strong contrast.\n\nScanners see brightness, not colour. A navy or dark green code on cream works. A pale pink code on white won't.\n\nSave this for your next design 📌",
+      "hashtags": [
+        "#branding",
+        "#colortheory",
+        "#designtips"
+      ]
+    },
+    {
+      "day": 17,
+      "format": "reel",
+      "link": "/guides/track-qr-code-scans",
+      "slides": [
+        {
+          "kind": "cover",
+          "eyebrow": "Marketing",
+          "title": "Is anyone scanning your **QR code?**",
+          "sub": "Two ways to find out."
+        },
+        {
+          "kind": "point",
+          "num": "01",
+          "title": "UTM tags",
+          "body": "Add tags to the link and see visits in your own analytics. Free, but it counts visits, not scans."
+        },
+        {
+          "kind": "point",
+          "num": "02",
+          "title": "Dynamic code",
+          "body": "Counts every scan, with device, city and time of day. Works for any destination."
+        },
+        {
+          "kind": "cta",
+          "title": "Turn guesses into **decisions**",
+          "body": "Which method fits you, explained.",
+          "url": "https://endureqr.com/guides/track-qr-code-scans"
+        }
+      ],
+      "caption": "You printed 1,000 flyers with a QR code. How many people scanned it? 📊\n\n1️⃣ UTM tags: free, shows visits in your Google Analytics, but only for your own website\n2️⃣ Dynamic QR code: counts every scan, with device, city and time of day\n\nWhich one are you using? 👇",
+      "hashtags": [
+        "#marketinganalytics",
+        "#digitalmarketing",
+        "#marketingtips"
+      ]
+    },
+    {
+      "day": 18,
+      "format": "carousel",
+      "link": "/guides/qr-code-for-events",
+      "slides": [
+        {
+          "kind": "cover",
+          "eyebrow": "Event planners",
+          "title": "A QR code for **every stage**",
+          "sub": "From the invite to the feedback form."
+        },
+        {
+          "kind": "point",
+          "num": "Before",
+          "title": "Invitations",
+          "body": "RSVP form, add-to-calendar event, venue location."
+        },
+        {
+          "kind": "point",
+          "num": "On the day",
+          "title": "At the venue",
+          "body": "Agenda, WiFi for guests, speaker slides, the floor map."
+        },
+        {
+          "kind": "point",
+          "num": "After",
+          "title": "Follow up",
+          "body": "Feedback form, photos, the next event's sign-up."
+        },
+        {
+          "kind": "point",
+          "num": "TIP",
+          "title": "One code per surface",
+          "body": "Two codes side by side confuse people. Give each one a clear label."
+        },
+        {
+          "kind": "cta",
+          "title": "Plan your event **QR codes**",
+          "body": "Which code to use at each stage.",
+          "url": "https://endureqr.com/guides/qr-code-for-events"
+        }
+      ],
+      "caption": "Planning an event? Here's where QR codes save everyone time 🎟️\n\n📩 Before: RSVP, add-to-calendar, location\n🎤 On the day: agenda, guest WiFi, slides\n📝 After: feedback form, photos, next sign-up\n\nOne code per surface, with a clear label. Save this for your next event 📌",
+      "hashtags": [
+        "#eventplanning",
+        "#eventplanner",
+        "#conference"
+      ]
+    },
+    {
+      "day": 19,
+      "format": "single",
+      "link": "/guides/do-qr-codes-expire",
+      "slides": [
+        {
+          "kind": "stat",
+          "eyebrow": "Read the fine print",
+          "big": "Trial over",
+          "label": "= printed code paused",
+          "body": "Some generators make dynamic codes on a free trial. When it ends, the printed code can stop working or show an upgrade page. Check the cancellation policy before you print."
+        }
+      ],
+      "caption": "\"Free QR code generator\"... until your printed code stops working 😬\n\nSome sites put dynamic codes on a free trial. When it ends, the code can be paused or sent to an upgrade page, and your printed menus and flyers stop working.\n\nBefore you print: check what happens if you stop paying.",
+      "hashtags": [
+        "#smallbusinesstips",
+        "#printing",
+        "#marketingtips"
+      ]
+    },
+    {
+      "day": 20,
+      "format": "reel",
+      "link": "/guides/how-to-make-a-qr-code",
+      "slides": [
+        {
+          "kind": "cover",
+          "eyebrow": "Step by step",
+          "title": "Make a QR code in **4 steps**",
+          "sub": "Free, in your browser."
+        },
+        {
+          "kind": "list",
+          "title": "The steps",
+          "items": [
+            "Pick the type: link, WiFi, contact...",
+            "Enter your content",
+            "Add a logo and frame (optional)",
+            "Download PNG, SVG or PDF"
+          ]
+        },
+        {
+          "kind": "point",
+          "num": "TIP",
+          "title": "Print a proof",
+          "body": "Test the printed code on 2 or 3 phones before you print 1,000 copies."
+        },
+        {
+          "kind": "cta",
+          "title": "Try it **free**",
+          "body": "17 types, no sign-up, no watermark.",
+          "url": "https://endureqr.com"
+        }
+      ],
+      "caption": "How to make a QR code (free, no sign-up) ⚡\n\n1️⃣ Pick the type: link, WiFi, contact card and more\n2️⃣ Enter your content\n3️⃣ Add a logo and frame if you like\n4️⃣ Download PNG, SVG or PDF\n\nThen print ONE copy and test it on a few phones before the big print run.",
+      "hashtags": [
+        "#howto",
+        "#freetools",
+        "#qrcodes"
+      ]
+    },
+    {
+      "day": 21,
+      "format": "carousel",
+      "link": "/guides/qr-code-design-best-practices",
+      "slides": [
+        {
+          "kind": "cover",
+          "eyebrow": "Design",
+          "title": "QR design do's and **don'ts**",
+          "sub": "Look good. Scan first time."
+        },
+        {
+          "kind": "point",
+          "num": "DO",
+          "title": "Rounded squares",
+          "body": "A safe way to soften the look. Tiny dots and gaps can defeat older scanners."
+        },
+        {
+          "kind": "point",
+          "num": "DO",
+          "title": "Frame + call to action",
+          "body": "\"Scan for menu\", \"Scan to join WiFi\". Tell people what they get."
+        },
+        {
+          "kind": "point",
+          "num": "DON'T",
+          "title": "Distort the grid",
+          "body": "Don't stretch, skew or warp the code to fit a layout."
+        },
+        {
+          "kind": "point",
+          "num": "DON'T",
+          "title": "Redraw the corner eyes",
+          "body": "Keep the 3 corner squares recognisable. They're how phones find the code."
+        },
+        {
+          "kind": "cta",
+          "title": "Design yours **free**",
+          "body": "Logo, colours and frames, with safe defaults.",
+          "url": "https://endureqr.com/guides/qr-code-design-best-practices"
+        }
+      ],
+      "caption": "Designers, this one's for you 🎨\n\n✅ Rounded squares\n✅ A frame with a call to action\n❌ Stretching or skewing the code\n❌ Redrawing the corner squares as hearts or stars\n\nA good-looking code that doesn't scan is just decoration. Save this 📌",
+      "hashtags": [
+        "#graphicdesigner",
+        "#designtips",
+        "#branding"
+      ]
+    },
+    {
+      "day": 22,
+      "format": "single",
+      "link": "/guides/wifi-qr-code",
+      "slides": [
+        {
+          "kind": "point",
+          "eyebrow": "WiFi safety",
+          "num": "TIP",
+          "title": "Print your guest network, never your main one",
+          "body": "Anyone who photographs the code can join. A separate guest network keeps your devices and files away from visitors."
+        }
+      ],
+      "caption": "Putting a WiFi QR code on the wall? Read this first 🔐\n\nAnyone who scans (or photographs) it can join your network. So:\n\n✅ Create a separate guest network\n✅ Put only that one on the code\n✅ Change the password every few months (that means a new code)\n\nYour office files will thank you.",
+      "hashtags": [
+        "#wifi",
+        "#cybersecurity",
+        "#smallbusinesstips"
+      ]
+    },
+    {
+      "day": 23,
+      "format": "reel",
+      "link": "/guides/are-qr-codes-safe",
+      "slides": [
+        {
+          "kind": "cover",
+          "eyebrow": "Scam alert",
+          "title": "The fake **parking meter** QR",
+          "sub": "A sticker, a copycat payment page, your card details."
+        },
+        {
+          "kind": "point",
+          "num": "01",
+          "title": "Look for a sticker",
+          "body": "A code stuck over another one, or one that peels at the edge, is a red flag."
+        },
+        {
+          "kind": "point",
+          "num": "02",
+          "title": "Check the link",
+          "body": "Does the domain match the city or the parking company? Look for misspellings."
+        },
+        {
+          "kind": "point",
+          "num": "03",
+          "title": "Use the official app",
+          "body": "When in doubt, pay through the app from the official store instead."
+        },
+        {
+          "kind": "cta",
+          "title": "Know the **signs**",
+          "body": "The full guide to QR code scams.",
+          "url": "https://endureqr.com/guides/are-qr-codes-safe"
+        }
+      ],
+      "caption": "This scam is showing up on parking meters and pay stations 🚨\n\nCriminals stick their own QR code over the real one. It opens a copycat payment page that steals your card details.\n\n🔍 Look for stickers over codes\n🔤 Check the domain before you pay\n📲 When in doubt, use the official app\n\nShare this to warn someone 🙏",
+      "hashtags": [
+        "#scamalert",
+        "#cybersecurity",
+        "#onlinesafety"
+      ]
+    },
+    {
+      "day": 24,
+      "format": "carousel",
+      "link": "/industries/real-estate",
+      "slides": [
+        {
+          "kind": "cover",
+          "eyebrow": "Real estate",
+          "title": "One sign. **Every listing.**",
+          "sub": "Reuse the same yard sign by changing where the code points."
+        },
+        {
+          "kind": "point",
+          "num": "01",
+          "title": "Sign riders",
+          "body": "Point the code at the current listing. When it sells, point it at the next one."
+        },
+        {
+          "kind": "point",
+          "num": "02",
+          "title": "Open house sign-in",
+          "body": "Send visitors to a sign-in form and follow up with the ones who scanned."
+        },
+        {
+          "kind": "point",
+          "num": "03",
+          "title": "Flyers and brochures",
+          "body": "Link to a video tour today and the price update tomorrow."
+        },
+        {
+          "kind": "cta",
+          "title": "QR codes for **agents**",
+          "body": "See which signs bring buyers in.",
+          "url": "https://endureqr.com/industries/real-estate"
+        }
+      ],
+      "caption": "Real estate agents: stop reprinting signs for every listing 🏡\n\nPut a dynamic QR code on your sign rider. When the house sells, point the same code at your next listing.\n\n✅ Open house sign-in forms\n✅ Video tours on flyers\n✅ See which signs actually get scanned\n\nTag an agent 👇",
+      "hashtags": [
+        "#realestate",
+        "#realtor",
+        "#realestateagent"
+      ]
+    },
+    {
+      "day": 25,
+      "format": "single",
+      "link": "/guides/qr-code-design-best-practices",
+      "slides": [
+        {
+          "kind": "point",
+          "eyebrow": "The forgotten step",
+          "num": "TIP",
+          "title": "Tell people **why** to scan",
+          "body": "A code with no label is a mystery box. \"Scan for menu\", \"Scan to join WiFi\" or \"Scan for 10% off\" gets far more scans."
+        }
+      ],
+      "caption": "The easiest way to get more QR scans? Add 3 words 🗣️\n\n\"Scan for menu\"\n\"Scan to join WiFi\"\n\"Scan to book\"\n\nPeople don't scan a mystery box. A short call to action next to the code tells them exactly what they get.\n\nWhat would yours say? 👇",
+      "hashtags": [
+        "#marketingtips",
+        "#copywriting",
+        "#smallbusiness"
+      ]
+    },
+    {
+      "day": 26,
+      "format": "reel",
+      "link": "/guides/static-vs-dynamic-qr-codes",
+      "slides": [
+        {
+          "kind": "cover",
+          "eyebrow": "Did you know?",
+          "title": "A static QR code is free **forever**",
+          "sub": "No account. No expiry. No subscription."
+        },
+        {
+          "kind": "point",
+          "num": "WHY",
+          "title": "Your data is in the pattern",
+          "body": "No server sits in the middle, so there's nothing to switch off."
+        },
+        {
+          "kind": "list",
+          "title": "Best for",
+          "items": [
+            "WiFi",
+            "Contact cards",
+            "Your homepage",
+            "Plain text and email"
+          ]
+        },
+        {
+          "kind": "cta",
+          "title": "Make one **now**",
+          "body": "Free, unlimited, no watermark.",
+          "url": "https://endureqr.com"
+        }
+      ],
+      "caption": "You never have to pay for a static QR code 💸\n\nThe link is stored right in the pattern. No server, no account, nothing that can be switched off.\n\nUse static for: WiFi, contact cards, your homepage, text.\nUse dynamic when: you want to change the link later or count scans.",
+      "hashtags": [
+        "#freetools",
+        "#smallbusinesstips",
+        "#qrcodes"
+      ]
+    },
+    {
+      "day": 27,
+      "format": "carousel",
+      "link": "/industries/hotels",
+      "slides": [
+        {
+          "kind": "cover",
+          "eyebrow": "Hotels & rentals",
+          "title": "QR codes your guests **will use**",
+          "sub": "Fewer questions at the front desk."
+        },
+        {
+          "kind": "point",
+          "num": "01",
+          "title": "Guest WiFi",
+          "body": "Join in one scan. No password on a scrap of paper."
+        },
+        {
+          "kind": "point",
+          "num": "02",
+          "title": "Room information",
+          "body": "Replace the printed binder with a page you can edit any time: breakfast hours, spa, checkout."
+        },
+        {
+          "kind": "point",
+          "num": "03",
+          "title": "Seasonal upsells",
+          "body": "Promote the spa in winter and the rooftop bar in summer, from the same room card."
+        },
+        {
+          "kind": "point",
+          "num": "04",
+          "title": "Reviews at checkout",
+          "body": "A code on the checkout card that opens your review page."
+        },
+        {
+          "kind": "cta",
+          "title": "QR codes for **hotels**",
+          "body": "Ideas and a worked example.",
+          "url": "https://endureqr.com/industries/hotels"
+        }
+      ],
+      "caption": "Hotel and rental hosts: 4 QR codes that save you messages every day 🛎️\n\n📶 Guest WiFi\n📖 Room information (no more printed binder)\n🧖 Seasonal upsells from the same card\n⭐ Reviews at checkout\n\nWhich one would help you most? 👇",
+      "hashtags": [
+        "#hotel",
+        "#airbnbhost",
+        "#hospitality"
+      ]
+    },
+    {
+      "day": 28,
+      "format": "single",
+      "link": "/guides/how-to-make-a-qr-code",
+      "slides": [
+        {
+          "kind": "list",
+          "eyebrow": "Before 1,000 copies",
+          "title": "Print **one** proof first",
+          "items": [
+            "Scan it on iPhone and Android",
+            "Try it in dim light",
+            "Scan from the real distance",
+            "Check the link opens the right page"
+          ]
+        }
+      ],
+      "caption": "A typo in a QR code costs nothing on screen and a lot on 1,000 flyers 🖨️\n\nPrint ONE proof first:\n✅ Scan on iPhone AND Android\n✅ Try dim light\n✅ Scan from the real distance\n✅ Check the page that opens\n\nTwo minutes now saves a reprint later.",
+      "hashtags": [
+        "#printing",
+        "#smallbusinesstips",
+        "#marketingtips"
+      ]
+    },
+    {
+      "day": 29,
+      "format": "reel",
+      "link": "/industries/retail",
+      "slides": [
+        {
+          "kind": "cover",
+          "eyebrow": "Retail",
+          "title": "QR ideas for **your shop**",
+          "sub": "Small codes, big help."
+        },
+        {
+          "kind": "point",
+          "num": "01",
+          "title": "On the pack",
+          "body": "Care guides, recipes or warranty pages. Update them without new packaging."
+        },
+        {
+          "kind": "point",
+          "num": "02",
+          "title": "Shelf talkers",
+          "body": "One promotion this week, a different one next week. Same printed card."
+        },
+        {
+          "kind": "point",
+          "num": "03",
+          "title": "Window display",
+          "body": "Let passers-by shop the window after hours."
+        },
+        {
+          "kind": "cta",
+          "title": "QR codes for **retail**",
+          "body": "More ideas and a worked example.",
+          "url": "https://endureqr.com/industries/retail"
+        }
+      ],
+      "caption": "Shop owners: 3 places a QR code earns its spot 🛍️\n\n📦 On the pack: care guides, recipes, warranty pages\n🏷️ Shelf talkers: change the promotion weekly, same card\n🪟 Window: let people shop after hours\n\nWhich one are you trying first? 👇",
+      "hashtags": [
+        "#retail",
+        "#shopowner",
+        "#smallbusiness"
+      ]
+    },
+    {
+      "day": 30,
+      "format": "carousel",
+      "link": "/",
+      "slides": [
+        {
+          "kind": "cover",
+          "eyebrow": "30 days of QR tips",
+          "title": "Everything in **one post**",
+          "sub": "Save it. Share it. Print better codes."
+        },
+        {
+          "kind": "list",
+          "title": "Size & print",
+          "items": [
+            "10:1 distance rule",
+            "Minimum 2 cm",
+            "4-module quiet zone",
+            "300 DPI or SVG"
+          ]
+        },
+        {
+          "kind": "list",
+          "title": "Design",
+          "items": [
+            "Dark on light",
+            "Logo ≤ 20–25%",
+            "Level H with a logo",
+            "Always add a call to action"
+          ]
+        },
+        {
+          "kind": "list",
+          "title": "Safety & reliability",
+          "items": [
+            "Guest WiFi only",
+            "Read the link preview",
+            "Check what happens if you cancel",
+            "Print one proof first"
+          ]
+        },
+        {
+          "kind": "cta",
+          "title": "Make your first code **free**",
+          "body": "17 types. Logo and frame. No sign-up, no watermark.",
+          "url": "https://endureqr.com"
+        }
+      ],
+      "caption": "30 days of QR code tips in one post 🎉 Save this one 📌\n\n📏 Size: 10:1 rule, min 2 cm, 4-module margin, 300 DPI or SVG\n🎨 Design: dark on light, small logo, level H, a clear call to action\n🔒 Safety: guest WiFi only, read the preview, check what happens if you cancel, print a proof\n\nThanks for following along. What should we cover next? 👇",
+      "hashtags": [
+        "#qrcodes",
+        "#marketingtips",
+        "#printdesign"
+      ]
+    }
+  ]
+}
