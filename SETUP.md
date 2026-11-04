@@ -91,6 +91,11 @@ github.com/cmsdev55/endureqr-social → **Settings** → **Secrets and variables
 Instagram ka API apni music library se sound nahi laga sakta, is liye workflow **Instagram pe reels post nahi karta**.
 Carousels aur images automatic jati hain; Facebook pe reel bhi automatic jati hai.
 
+**Reminder:** har reel wale din subah 10 baje (Pakistan) GitHub ek Issue kholta hai jo aap ko assign hota hai:
+"🎬 Today: post the Day N reel on Instagram". GitHub is ki email aur GitHub app pe notification bhejta hai, jis mein
+video link, sound mood aur caption hota hai. Reel post karke Issue **Close** kar do.
+(Phone pe notification ke liye GitHub app install karke login karo.)
+
 1. Phone pe [REELS.md](REELS.md) kholo. Har reel ki date, video link, sound ka mood aur caption wahan hai.
 2. Video link kholo → video save karo (iPhone: share → **Save Video**; Android: ⋮ → **Download**).
 3. Instagram → **+** → **Reel** → video chuno → **Audio** (♫) → mood ke hisaab se trending sound chuno.

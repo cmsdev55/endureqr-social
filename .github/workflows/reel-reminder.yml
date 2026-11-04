@@ -1,0 +1,47 @@
+name: Reel reminder
+
+# On reel days, opens a GitHub issue assigned to you at 05:00 UTC (10 am Pakistan), so GitHub emails you and
+# notifies the GitHub app: "Today: post the Day N reel on Instagram". Close the issue once it's posted.
+on:
+  schedule:
+    - cron: "0 5 * * *"
+  workflow_dispatch:
+    inputs:
+      day:
+        description: "Remind for a specific day (1–30). Leave empty for today's."
+        required: false
+      dry_run:
+        description: "Dry run (show the reminder, create nothing)"
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  remind:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          sparse-checkout: |
+            posts.json
+            scripts/reel-reminder.mjs
+            scripts/captions.mjs
+          sparse-checkout-cone-mode: false
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+      - name: Remind
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SOCIAL_START_DATE: ${{ vars.SOCIAL_START_DATE }}
+          DAY: ${{ inputs.day }}
+          DRY_RUN: ${{ inputs.dry_run }}
+        run: |
+          ARGS=()
+          if [[ "$DAY" =~ ^[0-9]+$ ]]; then ARGS+=(--day "$DAY"); fi
+          if [ "$DRY_RUN" = "true" ]; then ARGS+=(--dry-run); fi
+          node scripts/reel-reminder.mjs "${ARGS[@]}"
