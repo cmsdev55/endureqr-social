@@ -1,14 +1,15 @@
 name: Reel reminder
 
-# On reel days, opens a GitHub issue assigned to you at 05:00 UTC (10 am Pakistan), so GitHub emails you and
-# notifies the GitHub app: "Today: post the Day N reel on Instagram". Close the issue once it's posted.
+# The day before each reel day, opens a GitHub issue assigned to you, so GitHub emails you and notifies the
+# GitHub app: "Tomorrow: Day N reel for Instagram". A day ahead because GitHub often starts scheduled runs hours
+# late. Close the issue once the reel is scheduled.
 on:
   schedule:
-    - cron: "0 5 * * *"
+    - cron: "41 3 * * *"
   workflow_dispatch:
     inputs:
       day:
-        description: "Remind for a specific day (1–30). Leave empty for today's."
+        description: "Reel day to remind about (1–30). Leave empty for tomorrow's."
         required: false
       dry_run:
         description: "Dry run (show the reminder, create nothing)"

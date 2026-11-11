@@ -100,7 +100,10 @@ async function api(path, params = {}, method = "POST") {
   return json;
 }
 
-const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+/** A function declaration (hoisted), not a const: instagram() runs before this line is reached. */
+function sleep(ms) {
+  return new Promise((r) => setTimeout(r, ms));
+}
 
 /** Every file must be reachable before Meta tries to fetch it. */
 async function checkMedia() {
@@ -142,7 +145,8 @@ async function instagram() {
 }
 
 async function facebook() {
-  const recent = await api(`${PAGE}/posts`, { fields: "message", limit: "10" }, "GET");
+  // /posts also lists reels posted through /videos (checked 2026-11-11), so a repeat run skips them too
+  const recent = await api(`${PAGE}/posts`, { fields: "message", limit: "15" }, "GET");
   if (recent.data?.some((p) => p.message?.startsWith(marker))) return console.log("Facebook: already posted today, skipping");
 
   let res;

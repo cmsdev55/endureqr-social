@@ -1,11 +1,12 @@
 #!/usr/bin/env node
 /**
- * On a reel day, opens a GitHub issue assigned to the repo owner: "Today: post the Day N reel on Instagram".
- * GitHub emails it and pushes it to the GitHub mobile app, with the video link, sound mood and caption.
- * Close the issue once the reel is posted. Run every morning by .github/workflows/reel-reminder.yml.
+ * The day BEFORE a reel day, opens a GitHub issue assigned to the repo owner: "Tomorrow: Day N reel".
+ * (A day ahead, because GitHub often starts scheduled runs hours late.) GitHub emails it and pushes it to
+ * the GitHub mobile app, with the video link, sound mood and caption. Close it once the reel is scheduled.
+ * Run daily by .github/workflows/reel-reminder.yml.
  *
- *   node scripts/reel-reminder.mjs --dry-run           # show what today's reminder would say
- *   node scripts/reel-reminder.mjs --day 5 --dry-run   # for day 5
+ *   node scripts/reel-reminder.mjs --dry-run           # what today's run would say (about tomorrow)
+ *   node scripts/reel-reminder.mjs --day 5 --dry-run   # the reminder for the day 5 reel
  *
  * Environment: SOCIAL_START_DATE (variable), GITHUB_TOKEN + GITHUB_REPOSITORY (given by Actions),
  * REMINDER_ASSIGNEE (optional, default: the repo owner).
@@ -26,7 +27,7 @@ if (!start && !dayArg) {
 }
 
 const { posts, hashtagsBase = [] } = JSON.parse(await readFile(join(ROOT, "posts.json"), "utf8"));
-const day = dayArg || dayFor(start);
+const day = dayArg || dayFor(start) + 1; // tomorrow
 const post = posts.find((p) => p.day === day);
 if (!post || post.format !== "reel") {
   console.log(`Day ${day}: not a reel day, no reminder.`);
@@ -34,9 +35,10 @@ if (!post || post.format !== "reel") {
 }
 
 const nextReel = posts.find((p) => p.format === "reel" && p.day > day);
-const title = `🎬 Today: post the Day ${day} reel on Instagram (by 7 pm)`;
-const body = `Today${start ? ` (${dateFor(start, day)})` : ""} is a reel day. Instagram reels are posted by hand so you can add a sound.
-Facebook gets this reel automatically at 7 pm, so only Instagram is needed.
+const when = start ? dateFor(start, day) : `day ${day}`;
+const title = `🎬 Tomorrow (${when}): Day ${day} reel for Instagram`;
+const body = `**${when}** is a reel day. Instagram reels are posted by hand so you can add a sound.
+Facebook gets this reel automatically that day, so only Instagram is needed.
 
 **1. Video** (open on your phone → save): ${mediaFor(post).video}
 
@@ -48,9 +50,9 @@ Facebook gets this reel automatically at 7 pm, so only Instagram is needed.
 ${captionsFor(post, hashtagsBase).ig}
 \`\`\`
 
-**4.** Post it now, or tap **Advanced settings → Schedule** for 7:00 pm today.
+**4.** Tap **Advanced settings → Schedule** and pick **${when}, 7:00 pm** (or post it on the day).
 
-When it's up, close this issue.${nextReel ? `\n\nNext reel: Day ${nextReel.day}${start ? ` (${dateFor(start, nextReel.day)})` : ""}.` : ""}`;
+When it's scheduled, close this issue.${nextReel ? `\n\nNext reel: Day ${nextReel.day}${start ? ` (${dateFor(start, nextReel.day)})` : ""}.` : ""}`;
 
 console.log(`${title}\n\n${body}`);
 if (DRY) process.exit(0);
@@ -69,7 +71,7 @@ const api = (path, init = {}) =>
   });
 
 const open = await api(`/issues?state=all&per_page=30`);
-if (open.some((i) => i.title === title)) {
+if (open.some((i) => i.title.includes(`Day ${day} reel`))) {
   console.log("Reminder for this day already exists, skipping.");
   process.exit(0);
 }

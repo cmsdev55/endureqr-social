@@ -1,11 +1,14 @@
 name: Daily social post
 
-# Posts one day of posts.json to Instagram + Facebook, every day at 14:00 UTC
-# (7 pm Pakistan, 9 am New York). Free: uses about 1 minute of GitHub Actions a day.
+# Posts one day of posts.json to Instagram + Facebook. Free: about 1 minute of GitHub Actions a day.
+# GitHub often starts scheduled runs hours late, so it is triggered three times (12:17, 14:17 and 16:17
+# Pakistan time). The first run that starts posts; the later ones see the post is already up and skip.
 # Setup: SETUP.md
 on:
   schedule:
-    - cron: "0 14 * * *"
+    - cron: "17 7 * * *"
+    - cron: "17 9 * * *"
+    - cron: "17 11 * * *"
   workflow_dispatch:
     inputs:
       day:
