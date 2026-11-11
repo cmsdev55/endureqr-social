@@ -173,6 +173,7 @@ const shots = async (post, W, H, prefix) => {
   return files;
 };
 
+const reelDays = [];
 for (const post of posts) {
   if (only.length && !only.includes(post.day)) continue;
   const id = `d${String(post.day).padStart(2, "0")}`;
@@ -183,6 +184,7 @@ for (const post of posts) {
     const frames = await shots(post, 1080, 1920, join(tmp, "s"));
     execFileSync("cp", [frames[0], join(OUT, `${id}-cover.jpg`)]);
     reel(frames, join(OUT, `${id}.mp4`));
+    reelDays.push(post.day);
     console.log(`${id}  reel      ${frames.length} slides → ${id}.mp4`);
   } else {
     const files = await shots(post, 1080, 1350, join(OUT, id));
@@ -190,6 +192,8 @@ for (const post of posts) {
   }
 }
 await browser.close();
+// background music (original, scripts/music.mjs) replaces the silent track
+if (reelDays.length) execFileSync("node", [join(ROOT, "scripts/add-music.mjs"), ...reelDays.map(String)], { stdio: "inherit" });
 
 /**
  * Slides → MP4: each slide holds for HOLD s with a slow zoom, cross-fading into the next.

@@ -86,28 +86,16 @@ github.com/cmsdev55/endureqr-social → **Settings** → **Secrets and variables
 
 ---
 
-## Reels: Instagram pe haath se, sound ke saath (mahine mein ek dafa, ~20–30 minute)
+## Reels: ab poori tarah automatic (original music ke saath)
 
-Instagram ka API apni music library se sound nahi laga sakta, is liye workflow **Instagram pe reels post nahi karta**.
-Carousels aur images automatic jati hain; Facebook pe reel bhi automatic jati hai.
+Har reel mein **apna banaya hua background music** hai (`scripts/music.mjs`, code se bana, kisi gaane ya library se
+nahi), is liye copyright ki wajah se reel kabhi mute nahi hogi. Mood `posts.json` ke `sound` se aata hai:
+upbeat, calm ya tense (scam alert). Workflow reels Instagram aur Facebook dono pe khud post karta hai
+(variable `SOCIAL_REELS_AUTO` = `ig,fb`). Aap ko kuch nahi karna.
 
-**Reminder:** har reel se **ek din pehle** GitHub ek Issue kholta hai jo aap ko assign hota hai:
-"🎬 Tomorrow (date): Day N reel for Instagram". (Ek din pehle is liye ke GitHub scheduled runs aksar ghanton late chalata hai.) GitHub is ki email aur GitHub app pe notification bhejta hai, jis mein
-video link, sound mood aur caption hota hai. Reel schedule karke Issue **Close** kar do.
-(Phone pe notification ke liye GitHub app install karke login karo.)
-
-1. Phone pe [REELS.md](REELS.md) kholo. Har reel ki date, video link, sound ka mood aur caption wahan hai.
-2. Video link kholo → video save karo (iPhone: share → **Save Video**; Android: ⋮ → **Download**).
-3. Instagram → **+** → **Reel** → video chuno → **Audio** (♫) → mood ke hisaab se trending sound chuno.
-   Sound ka volume halka rakho, text slides padhne ka waqt milna chahiye.
-4. **Next** → caption REELS.md se copy-paste → **Advanced settings** (ya **More options**) → **Schedule** → REELS.md wali date, shaam 7 baje.
-5. Agle reel pe. 10 reels ~20–30 minute.
-
-Dates `SOCIAL_START_DATE` se banti hain. Start date badli to mujhe bolo, ya laptop pe chalao:
-`SOCIAL_START_DATE=2026-11-06 npm run reels` (REELS.md nayi dates ke saath ban jayegi).
-
-Agar kabhi reels bhi bina sound ke automatic chahiye: variable `SOCIAL_REELS_AUTO` = `ig,fb`.
-Facebook pe bhi reel haath se daalni ho: `SOCIAL_REELS_AUTO` = `none`.
+- Naye reels: `npm run render` music khud laga deta hai. Sirf music dobara banana ho: `npm run music` (ya `npm run music -- 5`).
+- Kabhi kisi reel pe Instagram ka trending sound haath se lagana ho: `SOCIAL_REELS_AUTO` = `fb`, phir
+  [REELS.md](REELS.md) aur reminder workflow (Actions → **Reel reminder** → **Enable workflow**) wapas kaam karte hain.
 
 ---
 

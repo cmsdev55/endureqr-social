@@ -6,7 +6,8 @@
     "render": "node scripts/render.mjs",
     "post": "node scripts/post.mjs",
     "dry-run": "node scripts/post.mjs --dry-run",
-    "reels": "node scripts/reels-list.mjs"
+    "reels": "node scripts/reels-list.mjs",
+    "music": "node scripts/add-music.mjs"
   },
   "devDependencies": {
     "playwright": "^1.64.1",
