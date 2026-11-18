@@ -1,8 +1,10 @@
 name: Daily social post
 
-# Posts one day of posts.json to Instagram + Facebook. Free: about 1 minute of GitHub Actions a day.
+# Posts one day of posts.json to Instagram + Facebook (+ X when SOCIAL_PLATFORMS includes x).
+# About 1 minute of GitHub Actions a day; X's API itself is pay-per-use (see scripts/x.mjs).
 # GitHub often starts scheduled runs hours late, so it is triggered three times (12:17, 14:17 and 16:17
-# Pakistan time). The first run that starts posts; the later ones see the post is already up and skip.
+# Pakistan time). The first run that starts posts; the later ones see the post is already up and skip
+# (for X through a free cache marker, because checking X's timeline would cost API credits).
 # Setup: SETUP.md
 on:
   schedule:
@@ -34,15 +36,30 @@ jobs:
             posts.json
             scripts/post.mjs
             scripts/captions.mjs
+            scripts/x.mjs
           sparse-checkout-cone-mode: false
       - uses: actions/setup-node@v5
         with:
           node-version: 22
+      - id: date
+        run: echo "today=$(date -u +%F)" >> "$GITHUB_OUTPUT"
+      # Free "already posted to X today" marker (see x() in scripts/post.mjs)
+      - id: xdone
+        uses: actions/cache/restore@v4
+        with:
+          path: .x-posted
+          key: x-posted-${{ steps.date.outputs.today }}-day${{ inputs.day || 'auto' }}
       - name: Post
         env:
           META_PAGE_TOKEN: ${{ secrets.META_PAGE_TOKEN }}
           FB_PAGE_ID: ${{ secrets.FB_PAGE_ID }}
           IG_USER_ID: ${{ secrets.IG_USER_ID }}
+          X_API_KEY: ${{ secrets.X_API_KEY }}
+          X_API_SECRET: ${{ secrets.X_API_SECRET }}
+          X_ACCESS_TOKEN: ${{ secrets.X_ACCESS_TOKEN }}
+          X_ACCESS_SECRET: ${{ secrets.X_ACCESS_SECRET }}
+          X_INCLUDE_LINK: ${{ vars.X_INCLUDE_LINK }}
+          X_DONE: ${{ steps.xdone.outputs.cache-hit }}
           SOCIAL_START_DATE: ${{ vars.SOCIAL_START_DATE }}
           SOCIAL_PLATFORMS: ${{ vars.SOCIAL_PLATFORMS }}
           SOCIAL_REELS_AUTO: ${{ vars.SOCIAL_REELS_AUTO }}
@@ -53,3 +70,9 @@ jobs:
           if [[ "$DAY" =~ ^[0-9]+$ ]]; then ARGS+=(--day "$DAY"); fi
           if [ "$DRY_RUN" = "true" ]; then ARGS+=(--dry-run); fi
           node scripts/post.mjs "${ARGS[@]}"
+      # Saved even if Instagram/Facebook failed, so a retry run doesn't post to X twice
+      - if: always() && hashFiles('.x-posted') != '' && steps.xdone.outputs.cache-hit != 'true'
+        uses: actions/cache/save@v4
+        with:
+          path: .x-posted
+          key: x-posted-${{ steps.date.outputs.today }}-day${{ inputs.day || 'auto' }}

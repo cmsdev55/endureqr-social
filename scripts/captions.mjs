@@ -14,9 +14,12 @@ export function mediaFor(post) {
 export function captionsFor(post, hashtagsBase = []) {
   const tags = [...new Set([...(post.hashtags || []), ...hashtagsBase])].slice(0, 5).join(" "); // Instagram allows 5
   const link = `${SITE}${post.link === "/" ? "" : post.link}`;
+  // X charges ~13× more for a post that contains a link, so by default the link stays in the profile bio
+  const xLink = process.env.X_INCLUDE_LINK === "true" ? `\n\n${link}` : "";
   return {
     ig: `${post.caption}\n\n🔗 Free guide: link in bio (${link.replace(/^https:\/\//, "")})\n\n${tags}`,
     fb: `${post.caption}\n\n🔗 ${link}\n\n${tags}`,
+    x: post.x ? `${post.x}${xLink}` : null,
     marker: post.caption.split("\n")[0].slice(0, 40),
   };
 }

@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
- * Posts one day from posts.json to the EndureQR Instagram account and Facebook Page,
- * through Meta's free Graph API. Run daily by .github/workflows/social-post.yml.
+ * Posts one day from posts.json to the EndureQR Instagram account and Facebook Page (Meta's free Graph API)
+ * and to X (pay-per-use API, see scripts/x.mjs). Run daily by .github/workflows/social-post.yml.
  *
  *   node scripts/post.mjs --dry-run            # show today's post, send nothing
  *   node scripts/post.mjs --day 5 --dry-run    # show day 5
@@ -12,17 +12,20 @@
  *   FB_PAGE_ID         secret   numeric Facebook Page id
  *   IG_USER_ID         secret   numeric Instagram professional (Creator or Business) account id
  *   SOCIAL_START_DATE  variable YYYY-MM-DD that is day 1 (UTC)
- *   SOCIAL_PLATFORMS   variable optional, "ig,fb" (default), "ig" or "fb"
+ *   X_API_KEY, X_API_SECRET, X_ACCESS_TOKEN, X_ACCESS_SECRET   secrets   X app keys (SETUP.md, X section)
+ *   SOCIAL_PLATFORMS   variable optional, any of "ig,fb,x" (default "ig,fb")
+ *   X_INCLUDE_LINK     variable optional, "true" adds the guide link to X posts (X charges much more for links)
  *   SOCIAL_REELS_AUTO  variable optional, where reels are auto-posted: "fb" (default), "ig,fb" or "none".
  *                      Instagram's API can't add sounds from its music library, so by default Instagram
  *                      reels are scheduled by hand in the app with a sound (REELS.md lists them).
  *
  * Images and reels must already be live on GitHub Pages (media/ pushed to main, Pages enabled).
  */
-import { readFile } from "node:fs/promises";
+import { readFile, writeFile } from "node:fs/promises";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { captionsFor, dayFor, mediaFor } from "./captions.mjs";
+import { postToX, xLength, X_KEYS } from "./x.mjs";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const GRAPH = `https://graph.facebook.com/${process.env.GRAPH_VERSION || "v23.0"}`;
@@ -50,28 +53,43 @@ if (!post) {
 }
 
 const media = mediaFor(post);
-const { ig: captionIG, fb: captionFB, marker } = captionsFor(post, hashtagsBase);
-/** Reels go only where SOCIAL_REELS_AUTO allows; the rest are posted by hand with a sound. */
-const targets = post.format === "reel" ? platforms.filter((p) => reelsAuto.includes(p)) : platforms;
+const { ig: captionIG, fb: captionFB, x: captionX, marker } = captionsFor(post, hashtagsBase);
+const NAMES = { ig: "Instagram", fb: "Facebook", x: "X" };
+/** Reels go to Instagram/Facebook only where SOCIAL_REELS_AUTO allows (the rest are posted by hand with a sound). X always gets them. */
+let targets = post.format === "reel" ? platforms.filter((p) => p === "x" || reelsAuto.includes(p)) : platforms;
 const manual = platforms.filter((p) => !targets.includes(p));
 
 console.log(`Day ${day} · ${post.format} · ${post.link}`);
 console.log(JSON.stringify(media, null, 2));
-if (manual.length) console.log(`Reel: not auto-posted to ${manual.map((p) => (p === "ig" ? "Instagram" : "Facebook")).join(" + ")} (schedule it by hand with a sound, see REELS.md)`);
+if (manual.length) console.log(`Reel: not auto-posted to ${manual.map((p) => NAMES[p]).join(" + ")} (schedule it by hand with a sound, see REELS.md)`);
+if (targets.includes("x")) {
+  if (!captionX) throw new Error(`Day ${day} has no "x" text in posts.json`);
+  if (xLength(captionX) > 280) throw new Error(`Day ${day} X text is ${xLength(captionX)} characters; X allows 280`);
+}
 if (!targets.length) process.exit(0);
 if (DRY) {
   console.log(`\n--- Instagram caption ---\n${captionIG}\n\n--- Facebook caption ---\n${captionFB}`);
+  if (captionX) console.log(`\n--- X post (${xLength(captionX)}/280${media.images?.length > 4 ? `, first 4 of ${media.images.length} images` : ""}) ---\n${captionX}`);
   await checkMedia().catch((e) => console.log(`\n(media check: ${e.message})`));
   process.exit(0);
 }
 
-const missing = ["META_PAGE_TOKEN", "FB_PAGE_ID", "IG_USER_ID"].filter((n) => !process.env[n]);
-if (missing.length) notSetUp(`missing secret(s): ${missing.join(", ")}`);
-const TOKEN = need("META_PAGE_TOKEN"), PAGE = need("FB_PAGE_ID"), IG = need("IG_USER_ID");
+// Each platform runs only once its own keys are in GitHub Secrets, so X can be set up before or after Meta.
+const META = ["META_PAGE_TOKEN", "FB_PAGE_ID", "IG_USER_ID"];
+const skipped = [];
+for (const [p, keys] of [["ig", META], ["fb", META], ["x", X_KEYS]]) {
+  const missing = keys.filter((n) => !process.env[n]);
+  if (targets.includes(p) && missing.length) { skipped.push(`${NAMES[p]} (missing ${missing.join(", ")})`); targets = targets.filter((t) => t !== p); }
+}
+if (skipped.length) console.log(`::warning::Not set up yet, skipped: ${skipped.join("; ")}. See SETUP.md.`);
+if (targets.includes("x") && process.env.X_DONE === "true") { console.log("X: already posted today, skipping"); targets = targets.filter((t) => t !== "x"); }
+if (!targets.length) process.exit(0);
+const TOKEN = process.env.META_PAGE_TOKEN, PAGE = process.env.FB_PAGE_ID, IG = process.env.IG_USER_ID;
 await checkMedia();
 const failures = [];
 if (targets.includes("ig")) await instagram().catch((e) => failures.push(`Instagram: ${e.message}`));
 if (targets.includes("fb")) await facebook().catch((e) => failures.push(`Facebook: ${e.message}`));
+if (targets.includes("x")) await x().catch((e) => failures.push(`X: ${e.message}`));
 if (failures.length) {
   console.error(failures.join("\n"));
   process.exit(1);
@@ -83,12 +101,6 @@ if (failures.length) {
 function notSetUp(why) {
   console.log(`::warning::Not set up yet (${why}). Nothing posted. See SETUP.md, steps 3–4.`);
   process.exit(0);
-}
-
-function need(name) {
-  const v = process.env[name];
-  if (!v) throw new Error(`Missing ${name}`);
-  return v;
 }
 
 async function api(path, params = {}, method = "POST") {
@@ -163,4 +175,15 @@ async function facebook() {
     res = await api(`${PAGE}/feed`, { message: captionFB, ...attached });
   }
   console.log(`Facebook: published ${res.post_id || res.id}`);
+}
+
+/**
+ * Checking X's timeline for today's post would cost API credits on every run, so the workflow keeps a free
+ * marker instead: .x-posted is saved to the GitHub Actions cache and becomes X_DONE=true on later runs that day.
+ */
+async function x() {
+  const keys = Object.fromEntries(X_KEYS.map((k) => [k, process.env[k]]));
+  const id = await postToX(keys, captionX, media.video ? { video: media.video } : { images: media.images });
+  await writeFile(join(process.cwd(), ".x-posted"), `${day} ${id}\n`);
+  console.log(`X: published ${id}`);
 }

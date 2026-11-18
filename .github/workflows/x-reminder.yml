@@ -1,0 +1,49 @@
+name: X reminder
+
+# Every morning, opens a GitHub issue assigned to you with today's X post (text + one-click "open in X" link +
+# images), so GitHub emails you and notifies the GitHub app. You post it by hand: free, unlike X's paid API.
+# Runs at 8:11 am Pakistan time; GitHub sometimes starts it a few hours late, still well before the 7 pm post.
+on:
+  schedule:
+    - cron: "11 3 * * *"
+  workflow_dispatch:
+    inputs:
+      day:
+        description: "Day to remind about (1–30). Leave empty for today's."
+        required: false
+      dry_run:
+        description: "Dry run (show the reminder, create nothing)"
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  remind:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          sparse-checkout: |
+            posts.json
+            scripts/x-reminder.mjs
+            scripts/captions.mjs
+            scripts/x.mjs
+          sparse-checkout-cone-mode: false
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+      - name: Remind
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SOCIAL_START_DATE: ${{ vars.SOCIAL_START_DATE }}
+          DAY: ${{ inputs.day }}
+          DRY_RUN: ${{ inputs.dry_run }}
+        run: |
+          ARGS=()
+          if [[ "$DAY" =~ ^[0-9]+$ ]]; then ARGS+=(--day "$DAY"); fi
+          if [ "$DRY_RUN" = "true" ]; then ARGS+=(--dry-run); fi
+          node scripts/x-reminder.mjs "${ARGS[@]}"

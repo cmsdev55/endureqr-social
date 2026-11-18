@@ -1,5 +1,5 @@
 {
-  "note": "30 days of Instagram + Facebook posts for EndureQR. Facts come from the guides in src/content. Render with `node scripts/social-render.mjs`, post with `node scripts/social-post.mjs`. In titles, **word** is drawn in lime.",
+  "note": "30 days of Instagram + Facebook + X posts for EndureQR. Facts come from the guides in src/content. Render with `node scripts/social-render.mjs`, post with `node scripts/social-post.mjs`. In titles, **word** is drawn in lime.",
   "hashtagsBase": [
     "#qrcode",
     "#smallbusiness"
@@ -45,6 +45,7 @@
         }
       ],
       "caption": "Printed 500 flyers and the QR code stopped working a month later? 😬\n\nQR codes themselves don't expire. A static code stores your link right in the pattern, so it works as long as the print does.\n\nWhen a code \"dies\", it's usually the service behind a dynamic code: a free trial ended, a plan was cancelled or a domain lapsed.\n\nSave this before your next print run 📌",
+      "x": "QR codes don't expire.\n\nA static code stores your link in the pattern, so it works as long as the print does. When a code \"dies\", it's the service behind a dynamic code: a trial ended or a plan was cancelled.\n\nCheck before you print. #QRCodes",
       "hashtags": [
         "#qrcodes",
         "#printing",
@@ -87,6 +88,7 @@
         }
       ],
       "caption": "The 10:1 rule for QR codes 📏\n\nYour code should be at least 1/10 as wide as the distance people scan it from.\n\n📇 Business card → 2 cm\n📄 Flyer → 3 cm\n🍽️ Table tent → 5 cm\n🪧 Poster at 1 m → 10 cm\n🎪 Banner at 5 m → 50 cm\n\nTreat these as minimums. Go bigger in bad light or if people scan at an angle.",
+      "x": "The 10:1 rule for QR codes 📏\n\nMake the code at least 1/10 as wide as the scanning distance.\n\nBusiness card → 2 cm\nFlyer → 3 cm\nTable tent → 5 cm\nPoster at 1 m → 10 cm\nBanner at 5 m → 50 cm\n\n#PrintDesign",
       "hashtags": [
         "#printdesign",
         "#graphicdesign",
@@ -123,6 +125,7 @@
         }
       ],
       "caption": "Static or dynamic QR code? Here's the whole difference in one picture 👆\n\n✅ Static: free, fixed, works forever. Great for WiFi, contact cards and links that won't change.\n✅ Dynamic: you can change where it points after printing and see how many people scan it. Great for menus, posters and campaigns.\n\nWhich one do you use most? Tell us below 👇",
+      "x": "Static or dynamic QR code?\n\nStatic: free, fixed, works forever. Good for WiFi, contact cards, links that won't change.\n\nDynamic: change where it points after printing and count scans. Good for menus, posters, campaigns.\n\nWhich do you use?",
       "hashtags": [
         "#digitalmarketing",
         "#qrcodes",
@@ -178,6 +181,7 @@
         }
       ],
       "caption": "Your QR code won't scan? Swipe through these 5 fixes before you reprint anything 👉\n\n1️⃣ Low contrast\n2️⃣ Inverted colours\n3️⃣ Missing quiet zone\n4️⃣ Logo too big\n5️⃣ Code too small\n\nSend this to the person who designs your flyers 😉",
+      "x": "QR code won't scan? Check these 5 things before you reprint:\n\n1. Low contrast\n2. Inverted colours\n3. Missing quiet zone\n4. Logo too big\n5. Code too small\n\nSend this to whoever designs your flyers. #GraphicDesign",
       "hashtags": [
         "#graphicdesign",
         "#printing",
@@ -219,6 +223,7 @@
         }
       ],
       "caption": "Tired of spelling out your WiFi password? 📶\n\nA WiFi QR code lets guests join your network with one scan. Works on iPhone and Android with the normal camera.\n\n☕ Perfect for cafés, salons, offices and Airbnbs.\n🔒 Tip: put your GUEST network on it, never your main one.",
+      "x": "Tired of spelling out your WiFi password? 📶\n\nA WiFi QR code lets guests join with one scan, using the normal camera on iPhone and Android.\n\nTip: put your GUEST network on it, never your main one. #SmallBusiness",
       "hashtags": [
         "#wifi",
         "#cafe",
@@ -240,6 +245,7 @@
         }
       ],
       "caption": "The #1 reason a well-sized QR code still fails: someone trimmed the margin ✂️\n\nThe QR standard calls for a \"quiet zone\" 4 modules wide on all sides. No text, lines or images in it.\n\nEasiest fix: put a white box behind the code.\n\nTag a designer who needs this 👇",
+      "x": "The #1 reason a well-sized QR code still fails: someone trimmed the margin ✂️\n\nThe standard needs a quiet zone 4 modules wide on every side. No text, lines or images in it.\n\nEasiest fix: a white box behind the code.",
       "hashtags": [
         "#graphicdesign",
         "#designtips",
@@ -292,6 +298,7 @@
         }
       ],
       "caption": "QR code scams are on the rise. Here's how to spot one in 5 seconds 🕵️\n\n👀 Read the link preview before you tap\n🔤 Check the domain for misspellings\n💳 Be careful if a page asks for payment or a password\n\nShare this with someone who scans everything 🙏",
+      "x": "How to spot a QR code scam in 5 seconds 🕵️\n\n1. Read the link preview before you tap\n2. Check the domain for misspellings\n3. Be careful if the page asks for payment or a password\n\nShare with someone who scans everything. #ScamAlert",
       "hashtags": [
         "#cybersecurity",
         "#scamalert",
@@ -335,6 +342,7 @@
         }
       ],
       "caption": "Ever wondered how a QR code actually works? 🤔\n\n🔲 The 3 big corner squares help your phone find the code and turn it the right way up.\n⬛ The tiny squares (\"modules\") store the data.\n🩹 Error correction lets a damaged code still scan.\n\nFollow for one QR tip a day 🚀",
+      "x": "How a QR code works 🤔\n\nThe 3 big corner squares help your phone find the code and turn it the right way up.\n\nThe tiny squares (\"modules\") store the data.\n\nError correction lets a damaged code still scan. #TechExplained",
       "hashtags": [
         "#technology",
         "#howitworks",
@@ -385,6 +393,7 @@
         }
       ],
       "caption": "Restaurant owners: is your menu QR code helping or annoying guests? 🍝\n\n✅ Mobile page, not a giant PDF\n✅ \"Scan for menu\" label\n✅ Wipeable, matte, no glare\n✅ A few paper menus as backup\n\nTag a restaurant owner who needs this 👇",
+      "x": "Restaurant owners: is your menu QR code helping or annoying guests? 🍝\n\n✅ A mobile page, not a giant PDF\n✅ A \"Scan for menu\" label\n✅ Wipeable, matte, no glare\n✅ A few paper menus as backup\n\n#RestaurantMarketing",
       "hashtags": [
         "#restaurant",
         "#restaurantmarketing",
@@ -422,6 +431,7 @@
         }
       ],
       "caption": "A QR code can still scan with part of it missing 🤯\n\nThat's error correction. There are 4 levels:\nL → ~7%\nM → ~15%\nQ → ~25%\nH → ~30%\n\nHigher = tougher, but denser. If you put a logo in the middle, use H (our free generator switches to H automatically when you add a logo).",
+      "x": "A QR code can still scan with part of it missing 🤯\n\nThat's error correction, in 4 levels:\nL → ~7%\nM → ~15%\nQ → ~25%\nH → ~30%\n\nHigher is tougher but denser. Putting a logo in the middle? Use H. #QRCodes",
       "hashtags": [
         "#technology",
         "#design",
@@ -463,6 +473,7 @@
         }
       ],
       "caption": "Want your logo in the middle of your QR code? Do it the safe way 👇\n\n📐 Keep the logo to about 20–25% of the code's area (smaller is safer)\n🎯 Centre it, away from the corner squares\n🛡️ Use error correction level H\n📱 Test on a few different phones before printing",
+      "x": "Want your logo in the middle of a QR code? Do it safely:\n\n📐 Keep it to about 20–25% of the code's area\n🎯 Centre it, away from the corner squares\n🛡️ Use error correction level H\n📱 Test on a few phones before printing\n\n#Branding",
       "hashtags": [
         "#branding",
         "#logodesign",
@@ -526,6 +537,7 @@
         }
       ],
       "caption": "Your business card should save you into someone's phone in ONE scan 📇\n\n📲 vCard QR → adds you straight to their contacts\n🔗 Link QR → opens your website or profile\n\nKeep it at least 2 cm wide and print your details as text too.\n\nWhich would you choose? 👇",
+      "x": "Your business card should save you into someone's phone in ONE scan 📇\n\nvCard QR → adds you straight to their contacts\nLink QR → opens your site or profile\n\nKeep it at least 2 cm wide and print your details as text too. #Networking",
       "hashtags": [
         "#businesscard",
         "#networking",
@@ -546,6 +558,7 @@
         }
       ],
       "caption": "Blurry QR code on your poster? Here's why 🖨️\n\nA small PNG stretched to poster size goes soft at the edges, and scanners hate that.\n\n✅ Raster (PNG): 300 DPI at the final print size\n✅ Better: SVG or PDF, which stay sharp at any size\n\nOur free generator exports PNG, SVG, JPEG and PDF up to 4096 px.",
+      "x": "Blurry QR code on your poster? 🖨️\n\nA small PNG stretched to poster size goes soft at the edges, and scanners hate that.\n\nPNG: 300 DPI at the final print size\nBetter: SVG or PDF, sharp at any size\n\n#PrintDesign",
       "hashtags": [
         "#printing",
         "#printdesign",
@@ -589,6 +602,7 @@
         }
       ],
       "caption": "Still downloading a QR scanner app? You don't need one 📱\n\n🍎 iPhone: open the Camera and point\n🤖 Android: Camera, Google Lens or the Quick Settings scanner\n🖼️ Code on your own screen? Google Lens / Circle to Search, or on iPhone open it in Photos and press and hold the code\n\nShare this with someone who always asks you 😄",
+      "x": "You don't need a QR scanner app 📱\n\niPhone: open the Camera and point.\nAndroid: Camera, Google Lens or the Quick Settings scanner.\n\nShare this with the person who always asks you. #TechTips",
       "hashtags": [
         "#iphonetips",
         "#androidtips",
@@ -643,6 +657,7 @@
         }
       ],
       "caption": "More Google reviews = more customers finding you on Maps ⭐\n\nA review QR code opens your Google review form in one scan. Put it on receipts, at the till or on a thank-you card.\n\n⚠️ Follow the rules: ask every customer, never offer rewards for reviews, and don't suggest a rating.",
+      "x": "More Google reviews = more customers finding you on Maps ⭐\n\nA review QR code opens your Google review form in one scan. Put it on receipts or at the till.\n\nAsk every customer, never offer rewards, and don't suggest a rating. #LocalBusiness",
       "hashtags": [
         "#googlereviews",
         "#localbusiness",
@@ -678,6 +693,7 @@
         }
       ],
       "caption": "You CAN make a QR code match your brand colours. Just follow one rule 🎨\n\nDark modules on a light background, with strong contrast.\n\nScanners see brightness, not colour. A navy or dark green code on cream works. A pale pink code on white won't.\n\nSave this for your next design 📌",
+      "x": "Yes, a QR code can match your brand colours. One rule 🎨\n\nDark modules on a light background, with strong contrast.\n\nScanners see brightness, not colour. Navy on cream works. Pale pink on white won't. #DesignTips",
       "hashtags": [
         "#branding",
         "#colortheory",
@@ -715,6 +731,7 @@
         }
       ],
       "caption": "You printed 1,000 flyers with a QR code. How many people scanned it? 📊\n\n1️⃣ UTM tags: free, shows visits in your Google Analytics, but only for your own website\n2️⃣ Dynamic QR code: counts every scan, with device, city and time of day\n\nWhich one are you using? 👇",
+      "x": "You printed 1,000 flyers with a QR code. How many people scanned it? 📊\n\n1. UTM tags: free, visits show in Google Analytics, your own site only\n2. Dynamic QR code: counts every scan, with device, city and time\n\nWhich do you use? #Marketing",
       "hashtags": [
         "#marketinganalytics",
         "#digitalmarketing",
@@ -765,6 +782,7 @@
         }
       ],
       "caption": "Planning an event? Here's where QR codes save everyone time 🎟️\n\n📩 Before: RSVP, add-to-calendar, location\n🎤 On the day: agenda, guest WiFi, slides\n📝 After: feedback form, photos, next sign-up\n\nOne code per surface, with a clear label. Save this for your next event 📌",
+      "x": "Where QR codes save time at events 🎟️\n\nBefore: RSVP, add-to-calendar, location\nOn the day: agenda, guest WiFi, slides\nAfter: feedback form, photos, next sign-up\n\nOne code per surface, with a clear label. #EventPlanning",
       "hashtags": [
         "#eventplanning",
         "#eventplanner",
@@ -785,6 +803,7 @@
         }
       ],
       "caption": "\"Free QR code generator\"... until your printed code stops working 😬\n\nSome sites put dynamic codes on a free trial. When it ends, the code can be paused or sent to an upgrade page, and your printed menus and flyers stop working.\n\nBefore you print: check what happens if you stop paying.",
+      "x": "\"Free QR code generator\"... until your printed code stops working 😬\n\nSome sites put dynamic codes on a free trial. When it ends, the code can be paused or sent to an upgrade page.\n\nBefore you print, check what happens if you stop paying.",
       "hashtags": [
         "#smallbusinesstips",
         "#printing",
@@ -826,6 +845,7 @@
         }
       ],
       "caption": "How to make a QR code (free, no sign-up) ⚡\n\n1️⃣ Pick the type: link, WiFi, contact card and more\n2️⃣ Enter your content\n3️⃣ Add a logo and frame if you like\n4️⃣ Download PNG, SVG or PDF\n\nThen print ONE copy and test it on a few phones before the big print run.",
+      "x": "How to make a QR code (free, no sign-up) ⚡\n\n1. Pick the type: link, WiFi, contact card\n2. Enter your content\n3. Add a logo and frame if you like\n4. Download PNG, SVG or PDF\n\nThen print ONE copy and test it first. #FreeTools",
       "hashtags": [
         "#howto",
         "#freetools",
@@ -876,6 +896,7 @@
         }
       ],
       "caption": "Designers, this one's for you 🎨\n\n✅ Rounded squares\n✅ A frame with a call to action\n❌ Stretching or skewing the code\n❌ Redrawing the corner squares as hearts or stars\n\nA good-looking code that doesn't scan is just decoration. Save this 📌",
+      "x": "Designers, this one's for you 🎨\n\n✅ Rounded squares\n✅ A frame with a call to action\n❌ Stretching or skewing the code\n❌ Corner squares redrawn as hearts or stars\n\nA good-looking code that doesn't scan is just decoration. #GraphicDesign",
       "hashtags": [
         "#graphicdesigner",
         "#designtips",
@@ -896,6 +917,7 @@
         }
       ],
       "caption": "Putting a WiFi QR code on the wall? Read this first 🔐\n\nAnyone who scans (or photographs) it can join your network. So:\n\n✅ Create a separate guest network\n✅ Put only that one on the code\n✅ Change the password every few months (that means a new code)\n\nYour office files will thank you.",
+      "x": "Putting a WiFi QR code on the wall? 🔐\n\nAnyone who scans or photographs it can join your network. So:\n\n✅ Make a separate guest network\n✅ Put only that one on the code\n✅ Change its password every few months\n\n#CyberSecurity",
       "hashtags": [
         "#wifi",
         "#cybersecurity",
@@ -939,6 +961,7 @@
         }
       ],
       "caption": "This scam is showing up on parking meters and pay stations 🚨\n\nCriminals stick their own QR code over the real one. It opens a copycat payment page that steals your card details.\n\n🔍 Look for stickers over codes\n🔤 Check the domain before you pay\n📲 When in doubt, use the official app\n\nShare this to warn someone 🙏",
+      "x": "This scam is showing up on parking meters 🚨\n\nCriminals stick their own QR code over the real one. It opens a copycat payment page that steals card details.\n\nLook for stickers, check the domain, or use the official app. #ScamAlert",
       "hashtags": [
         "#scamalert",
         "#cybersecurity",
@@ -983,6 +1006,7 @@
         }
       ],
       "caption": "Real estate agents: stop reprinting signs for every listing 🏡\n\nPut a dynamic QR code on your sign rider. When the house sells, point the same code at your next listing.\n\n✅ Open house sign-in forms\n✅ Video tours on flyers\n✅ See which signs actually get scanned\n\nTag an agent 👇",
+      "x": "Real estate agents: stop reprinting signs for every listing 🏡\n\nPut a dynamic QR code on your sign rider. When the house sells, point the same code at your next listing, and see which signs get scanned.\n\n#RealEstate",
       "hashtags": [
         "#realestate",
         "#realtor",
@@ -1003,6 +1027,7 @@
         }
       ],
       "caption": "The easiest way to get more QR scans? Add 3 words 🗣️\n\n\"Scan for menu\"\n\"Scan to join WiFi\"\n\"Scan to book\"\n\nPeople don't scan a mystery box. A short call to action next to the code tells them exactly what they get.\n\nWhat would yours say? 👇",
+      "x": "The easiest way to get more QR scans? Add 3 words 🗣️\n\n\"Scan for menu\"\n\"Scan to join WiFi\"\n\"Scan to book\"\n\nPeople don't scan a mystery box. Tell them what they get.\n\nWhat would yours say? #MarketingTips",
       "hashtags": [
         "#marketingtips",
         "#copywriting",
@@ -1044,6 +1069,7 @@
         }
       ],
       "caption": "You never have to pay for a static QR code 💸\n\nThe link is stored right in the pattern. No server, no account, nothing that can be switched off.\n\nUse static for: WiFi, contact cards, your homepage, text.\nUse dynamic when: you want to change the link later or count scans.",
+      "x": "You never have to pay for a static QR code 💸\n\nThe link is stored in the pattern. No server, no account, nothing to switch off.\n\nStatic: WiFi, contact cards, your homepage.\nDynamic: when you'll change the link or want to count scans.",
       "hashtags": [
         "#freetools",
         "#smallbusinesstips",
@@ -1094,6 +1120,7 @@
         }
       ],
       "caption": "Hotel and rental hosts: 4 QR codes that save you messages every day 🛎️\n\n📶 Guest WiFi\n📖 Room information (no more printed binder)\n🧖 Seasonal upsells from the same card\n⭐ Reviews at checkout\n\nWhich one would help you most? 👇",
+      "x": "Hotel and rental hosts: 4 QR codes that save you messages every day 🛎️\n\n📶 Guest WiFi\n📖 Room info (no printed binder)\n🧖 Seasonal upsells\n⭐ Reviews at checkout\n\nWhich would help you most? #Hospitality",
       "hashtags": [
         "#hotel",
         "#airbnbhost",
@@ -1118,6 +1145,7 @@
         }
       ],
       "caption": "A typo in a QR code costs nothing on screen and a lot on 1,000 flyers 🖨️\n\nPrint ONE proof first:\n✅ Scan on iPhone AND Android\n✅ Try dim light\n✅ Scan from the real distance\n✅ Check the page that opens\n\nTwo minutes now saves a reprint later.",
+      "x": "A typo in a QR code costs nothing on screen and a lot on 1,000 flyers 🖨️\n\nPrint ONE proof first:\n✅ Scan on iPhone AND Android\n✅ Try dim light\n✅ Scan from the real distance\n✅ Check the page that opens",
       "hashtags": [
         "#printing",
         "#smallbusinesstips",
@@ -1161,6 +1189,7 @@
         }
       ],
       "caption": "Shop owners: 3 places a QR code earns its spot 🛍️\n\n📦 On the pack: care guides, recipes, warranty pages\n🏷️ Shelf talkers: change the promotion weekly, same card\n🪟 Window: let people shop after hours\n\nWhich one are you trying first? 👇",
+      "x": "Shop owners: 3 places a QR code earns its spot 🛍️\n\n📦 On the pack: care guides, recipes, warranty\n🏷️ Shelf talkers: change the promo weekly, same card\n🪟 Window: let people shop after hours\n\n#Retail #SmallBusiness",
       "hashtags": [
         "#retail",
         "#shopowner",
@@ -1217,6 +1246,7 @@
         }
       ],
       "caption": "30 days of QR code tips in one post 🎉 Save this one 📌\n\n📏 Size: 10:1 rule, min 2 cm, 4-module margin, 300 DPI or SVG\n🎨 Design: dark on light, small logo, level H, a clear call to action\n🔒 Safety: guest WiFi only, read the preview, check what happens if you cancel, print a proof\n\nThanks for following along. What should we cover next? 👇",
+      "x": "30 days of QR tips in one post 📌\n\nSize: 10:1 rule, min 2 cm, 4-module margin, SVG or 300 DPI\nDesign: dark on light, small logo, level H, a call to action\nSafety: guest WiFi only, read the preview, print a proof",
       "hashtags": [
         "#qrcodes",
         "#marketingtips",
