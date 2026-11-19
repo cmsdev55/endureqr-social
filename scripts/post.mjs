@@ -6,6 +6,8 @@
  *   node scripts/post.mjs --dry-run            # show today's post, send nothing
  *   node scripts/post.mjs --day 5 --dry-run    # show day 5
  *   node scripts/post.mjs --day 5              # post day 5 now
+ *   node scripts/post.mjs --special --dry-run  # today's one-off from specials.json (Instagram + Facebook)
+ *   node scripts/post.mjs --special --id ph-teaser --dry-run
  *
  * Environment (GitHub → Settings → Secrets and variables → Actions):
  *   META_PAGE_TOKEN    secret   long-lived Page access token (see SETUP.md)
@@ -24,7 +26,7 @@
 import { readFile, writeFile } from "node:fs/promises";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
-import { captionsFor, dayFor, mediaFor } from "./captions.mjs";
+import { MEDIA, captionsFor, dayFor, mediaFor } from "./captions.mjs";
 import { postToX, xLength, X_KEYS } from "./x.mjs";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
@@ -45,21 +47,44 @@ function today() {
   return dayFor(start);
 }
 
-const day = today();
-const post = posts.find((p) => p.day === day);
-if (!post) {
-  console.log(`Day ${day}: nothing scheduled (posts.json has days ${posts[0].day}–${posts.at(-1).day}). Add more posts to keep going.`);
-  process.exit(0);
+/**
+ * --special: post today's one-off from specials.json (by UTC date, or --id <id>) instead of the daily post.
+ * Instagram + Facebook only: X specials go out as an email reminder (x-reminder.mjs).
+ */
+const SPECIAL = argv.includes("--special");
+let day, post, media, captionIG, captionFB, captionX, marker;
+if (SPECIAL) {
+  const { specials } = JSON.parse(await readFile(join(ROOT, "specials.json"), "utf8"));
+  const idArg = argv.includes("--id") ? argv[argv.indexOf("--id") + 1] : null;
+  const date = new Date().toISOString().slice(0, 10);
+  post = specials.find((s) => (idArg ? s.id === idArg : s.date === date));
+  if (!post) {
+    console.log(idArg ? `No special with id "${idArg}".` : `No special post for ${date}.`);
+    process.exit(0);
+  }
+  day = post.id;
+  post = { ...post, format: post.images.length > 1 ? "carousel" : "single", link: `special ${post.date}` };
+  media = { images: post.images.map((f) => `${MEDIA}/${f}`) };
+  ({ ig: captionIG, fb: captionFB } = post);
+  captionX = null;
+  marker = captionIG.split("\n")[0].slice(0, 40);
+} else {
+  day = today();
+  post = posts.find((p) => p.day === day);
+  if (!post) {
+    console.log(`Day ${day}: nothing scheduled (posts.json has days ${posts[0].day}–${posts.at(-1).day}). Add more posts to keep going.`);
+    process.exit(0);
+  }
+  media = mediaFor(post);
+  ({ ig: captionIG, fb: captionFB, x: captionX, marker } = captionsFor(post, hashtagsBase));
 }
-
-const media = mediaFor(post);
-const { ig: captionIG, fb: captionFB, x: captionX, marker } = captionsFor(post, hashtagsBase);
 const NAMES = { ig: "Instagram", fb: "Facebook", x: "X" };
 /** Reels go to Instagram/Facebook only where SOCIAL_REELS_AUTO allows (the rest are posted by hand with a sound). X always gets them. */
 let targets = post.format === "reel" ? platforms.filter((p) => p === "x" || reelsAuto.includes(p)) : platforms;
-const manual = platforms.filter((p) => !targets.includes(p));
+if (SPECIAL) targets = targets.filter((p) => p !== "x");
+const manual = platforms.filter((p) => !targets.includes(p) && !(SPECIAL && p === "x"));
 
-console.log(`Day ${day} · ${post.format} · ${post.link}`);
+console.log(`${SPECIAL ? "Special" : "Day"} ${day} · ${post.format} · ${post.link}`);
 console.log(JSON.stringify(media, null, 2));
 if (manual.length) console.log(`Reel: not auto-posted to ${manual.map((p) => NAMES[p]).join(" + ")} (schedule it by hand with a sound, see REELS.md)`);
 if (targets.includes("x")) {

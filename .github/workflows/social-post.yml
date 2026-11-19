@@ -34,6 +34,7 @@ jobs:
         with:
           sparse-checkout: |
             posts.json
+            specials.json
             scripts/post.mjs
             scripts/captions.mjs
             scripts/x.mjs
@@ -68,6 +69,20 @@ jobs:
         run: |
           ARGS=()
           if [[ "$DAY" =~ ^[0-9]+$ ]]; then ARGS+=(--day "$DAY"); fi
+          if [ "$DRY_RUN" = "true" ]; then ARGS+=(--dry-run); fi
+          node scripts/post.mjs "${ARGS[@]}"
+      # One-off posts from specials.json on their date (Instagram + Facebook; X is an email reminder).
+      # Runs even if the daily post failed; repeat runs that day see it's already up and skip.
+      - name: Post special
+        if: always()
+        env:
+          META_PAGE_TOKEN: ${{ secrets.META_PAGE_TOKEN }}
+          FB_PAGE_ID: ${{ secrets.FB_PAGE_ID }}
+          IG_USER_ID: ${{ secrets.IG_USER_ID }}
+          SOCIAL_PLATFORMS: ${{ vars.SOCIAL_PLATFORMS }}
+          DRY_RUN: ${{ inputs.dry_run }}
+        run: |
+          ARGS=(--special)
           if [ "$DRY_RUN" = "true" ]; then ARGS+=(--dry-run); fi
           node scripts/post.mjs "${ARGS[@]}"
       # Saved even if Instagram/Facebook failed, so a retry run doesn't post to X twice

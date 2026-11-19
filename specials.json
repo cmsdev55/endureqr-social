@@ -1,0 +1,14 @@
+{
+  "note": "One-off posts on a set date (UTC), on top of the daily posts.json post. Instagram + Facebook are posted automatically by the daily workflow (post.mjs --special); X is sent as an email reminder (x-reminder.mjs) to post by hand. Images live in media/.",
+  "specials": [
+    {
+      "id": "ph-teaser",
+      "name": "Product Hunt teaser",
+      "date": "2026-11-22",
+      "images": ["ph-teaser.jpg"],
+      "ig": "On Monday I'm launching EndureQR on Product Hunt 🚀\n\nQR codes that keep working, even after you cancel. Free codes with your logo, no sign-up, no watermark, and editable dynamic codes that never get switched off on you.\n\nI'd love your feedback on the day. 🔗 endureqr.com (link in bio)\n\n#producthunt #startup #qrcode #buildinpublic #smallbusiness",
+      "fb": "On Monday I'm launching EndureQR on Product Hunt 🚀\n\nQR codes that keep working, even after you cancel. Free codes with your logo, no sign-up, no watermark, and editable dynamic codes that never get switched off on you.\n\nI'd love your feedback on the day. https://endureqr.com\n\n#producthunt #startup #qrcode",
+      "x": "On Monday I'm launching EndureQR on Product Hunt 🚀\n\nQR codes that keep working, even after you cancel. Free codes with your logo, no sign-up, no watermark, and editable dynamic codes that never get switched off on you.\n\nI'd love your feedback on the day. endureqr.com"
+    }
+  ]
+}
