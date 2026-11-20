@@ -2,10 +2,13 @@ name: X reminder
 
 # Every morning, opens a GitHub issue assigned to you with today's X post (text + one-click "open in X" link +
 # images), so GitHub emails you and notifies the GitHub app. You post it by hand: free, unlike X's paid API.
-# Runs at 8:11 am Pakistan time; GitHub sometimes starts it a few hours late, still well before the 7 pm post.
+# GitHub often starts scheduled runs hours late (19 Nov: 8 h), so it is triggered three times: 5:41, 7:11 and
+# 8:41 am Pakistan time. The first run that starts sends the reminder; later ones see it exists and skip.
 on:
   schedule:
-    - cron: "11 3 * * *"
+    - cron: "41 0 * * *"
+    - cron: "11 2 * * *"
+    - cron: "41 3 * * *"
   workflow_dispatch:
     inputs:
       day:
